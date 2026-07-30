@@ -45,30 +45,6 @@ if (parallaxTarget && !prefersReducedMotion) {
   });
 }
 
-// --- Sticky insight panels (scrollspy within Research section) ----------
-const insights = document.querySelectorAll('.cs-insight');
-const panels = document.querySelectorAll('.cs-sticky-panel');
-
-if (insights.length && panels.length && 'IntersectionObserver' in window) {
-  panels[0].classList.add('is-active');
-
-  const insightObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const step = entry.target.dataset.step;
-          panels.forEach((panel) => {
-            panel.classList.toggle('is-active', panel.dataset.panel === step);
-          });
-        }
-      });
-    },
-    { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
-  );
-
-  insights.forEach((el) => insightObserver.observe(el));
-}
-
 // --- Timeline fill synced to scroll through the Design Process section --
 const timelineFill = document.getElementById('timeline-fill');
 const timelineSection = document.querySelector('.cs-timeline');

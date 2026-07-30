@@ -9,7 +9,6 @@
   --cs-green: #16a34a;
   --cs-amber: #f59e0b;
   --cs-red: #ef4444;
-  --cs-panel-h: 340px;
 }
 
 /* Scroll progress bar */
@@ -334,120 +333,6 @@
 
 .cs-callout--goal .cs-callout__tag {
   color: var(--accent);
-}
-
-/* Research methods */
-.cs-method-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 48px 0 0;
-}
-
-.cs-method-card {
-  flex: 1 1 200px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-softer);
-  border-radius: 14px;
-  padding: 18px 20px;
-  font-size: 13px;
-  color: var(--text-60);
-}
-
-.cs-method-card small {
-  color: var(--text-30);
-  font-weight: 400;
-}
-
-.cs-method-card__icon {
-  font-size: 20px;
-  color: var(--accent);
-}
-
-/* Sticky scroll storytelling */
-.cs-sticky-scroll {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  margin-top: 72px;
-}
-
-.cs-sticky-scroll__visual {
-  position: sticky;
-  top: calc(50vh - (var(--cs-panel-h) / 2));
-  align-self: start;
-  height: var(--cs-panel-h);
-}
-
-.cs-sticky-panel {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-softer);
-  border-radius: 20px;
-  padding: 40px;
-  opacity: 0;
-  transition: opacity var(--dur-slow) var(--ease-premium);
-}
-
-.cs-sticky-panel.is-active {
-  opacity: 1;
-}
-
-.cs-sticky-panel__num {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 56px;
-  color: var(--accent);
-}
-
-.cs-sticky-panel__caption {
-  font-size: 14px;
-  color: var(--text-45);
-  max-width: 320px;
-}
-
-.cs-sticky-scroll__text {
-  display: flex;
-  flex-direction: column;
-}
-
-.cs-insight {
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px 0;
-}
-
-.cs-insight__index {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--text-22);
-  letter-spacing: 1px;
-}
-
-.cs-insight h3 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 24px;
-  color: var(--text-100);
-  margin: 12px 0 0;
-}
-
-.cs-insight p {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text-45);
-  margin: 12px 0 0;
-  max-width: 440px;
 }
 
 /* Timeline */
@@ -1104,33 +989,6 @@
   .cs-decision-grid,
   .cs-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cs-sticky-scroll {
-    grid-template-columns: 1fr;
-  }
-
-  .cs-sticky-scroll__visual {
-    position: relative;
-    top: 0;
-    height: auto;
-    margin-bottom: 24px;
-  }
-
-  .cs-sticky-panel {
-    position: relative;
-    inset: auto;
-    opacity: 1;
-    display: none;
-    padding: 28px;
-  }
-
-  .cs-sticky-panel:first-child {
-    display: flex;
-  }
-
-  .cs-insight {
-    min-height: 0;
   }
 
   .cs-timeline__items {
