@@ -377,7 +377,7 @@
 
 .cs-sticky-scroll__visual {
   position: sticky;
-  top: 110px;
+  top: calc(50vh - (var(--cs-panel-h) / 2));
   align-self: start;
   height: var(--cs-panel-h);
 }
