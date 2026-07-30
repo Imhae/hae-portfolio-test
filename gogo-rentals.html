@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GoGo Rentals — designing an end-to-end admin platform for a Hong Kong construction equipment rental business." />
+    <title>GoGo Rentals — Case Study — Trâm Lê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="cs-body">
+    <div class="scroll-progress"><div class="scroll-progress__bar" id="scroll-progress-bar"></div></div>
+
+    <header class="nav">
+      <div class="nav__inner">
+        <a href="./index.html" class="nav__logo">HAE<span class="accent">.</span></a>
+        <a href="./index.html#work" class="cs-back">
+          <img src="/src/assets/icons/arrow-up-right.svg" alt="" width="12" height="12" class="cs-back__icon" />
+          <span>All projects</span>
+        </a>
+        <a href="./index.html#contact" class="btn btn--ghost btn--sm">Let's Talk</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="cs-hero" id="hero">
+        <div class="container cs-hero__grid">
+          <div class="cs-hero__content" data-reveal>
+            <span class="tag">Internal Tools · SaaS Admin · Equipment Rental</span>
+            <h1 class="cs-hero__title">Designing the operating system for a construction equipment rental business.</h1>
+            <p class="cs-hero__lead">
+              GoGo Rentals rents scissor lifts and boom lifts to contractors across Hong Kong. I designed a single
+              admin platform — replacing scattered spreadsheets and paper forms — that runs the entire rental
+              lifecycle across 14 connected modules.
+            </p>
+            <dl class="cs-meta-row">
+              <div class="cs-meta-row__item">
+                <dt>Role</dt>
+                <dd>Lead Product / UX Designer</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Scope</dt>
+                <dd>14 modules, end-to-end</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Client</dt>
+                <dd>GoGo Rentals (Hong Kong)</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Platform</dt>
+                <dd>Web (desktop)</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="cs-hero__visual" data-parallax>
+          <div class="cs-device cs-device--browser cs-device--float">
+            <div class="cs-device__chrome">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="cs-device__screen cs-device__screen--photo cs-device__screen--crop-top">
+              <img src="/src/assets/images/gogo/overview.png" alt="GoGo Rentals admin dashboard overview" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT OVERVIEW -->
+      <section class="cs-section" id="overview">
+        <div class="container cs-overview__grid">
+          <div class="cs-overview__text" data-reveal>
+            <p class="eyebrow">Project Overview</p>
+            <h2 class="cs-h2">One platform for quoting, renting, delivering, and billing.</h2>
+            <p class="cs-body-text">
+              GoGo Rentals runs a fleet of construction lifts — Genie scissor lifts and boom lifts — rented to
+              contractors across Hong Kong. Before this platform, quoting, contracts, delivery, and billing were
+              split across spreadsheets and paper forms handled separately by sales, operations, and finance. I
+              designed an admin system that connects the entire rental lifecycle — quotation, rental note,
+              auto-generated invoice, delivery note, payment, and revenue reporting — alongside equipment and parts
+              inventory, usage reporting, and user management.
+            </p>
+            <ul class="cs-fact-list">
+              <li><span>Role</span>Lead Product / UX Designer, end-to-end</li>
+              <li><span>Scope</span>14 connected modules</li>
+              <li><span>Industry</span>Construction equipment rental</li>
+              <li><span>Platform</span>Web (desktop, internal tool)</li>
+            </ul>
+          </div>
+          <div class="cs-overview__stats">
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="14">0</span>
+              <span class="cs-stat-card__label">Modules unified into one system</span>
+            </div>
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="50" data-suffix="+">0</span>
+              <span class="cs-stat-card__label">Screens designed from one component system</span>
+            </div>
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="3">0</span>
+              <span class="cs-stat-card__label">Document types auto-linked, quote to invoice</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROBLEM & GOALS -->
+      <section class="cs-section cs-section--muted" id="problem">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Problem &amp; Goals</p>
+          <h2 class="cs-h2" data-reveal>A rental business quietly running on spreadsheets.</h2>
+          <div class="cs-split">
+            <div class="cs-callout cs-callout--problem" data-reveal>
+              <span class="cs-callout__tag">Problem</span>
+              <ul class="cs-callout__list">
+                <li>Quoting, contracts, delivery, and billing lived in separate spreadsheets and paper forms across sales, operations, and finance.</li>
+                <li>Staff re-typed the same client and equipment details on every quotation, rental note, and invoice.</li>
+                <li>No shared view of which machines were idle, currently rented, or due for maintenance.</li>
+                <li>Outstanding balances and partial payments were tracked by hand, with no consolidated view of cash flow.</li>
+              </ul>
+            </div>
+            <div class="cs-callout cs-callout--goal" data-reveal>
+              <span class="cs-callout__tag">Goals</span>
+              <ul class="cs-callout__list">
+                <li>One connected platform covering the full quote-to-cash lifecycle.</li>
+                <li>Auto-generate invoices directly from rental notes to remove duplicate entry.</li>
+                <li>Give every machine a status — idle, in use, or due for maintenance — visible at a glance.</li>
+                <li>Make revenue, outstanding invoices, and settlement status visible on a single dashboard.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESEARCH & INSIGHTS (sticky storytelling) -->
+      <section class="cs-section" id="research">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Research &amp; Insights</p>
+          <h2 class="cs-h2" data-reveal>Following the paperwork before designing the platform.</h2>
+
+          <div class="cs-method-row" data-reveal>
+            <div class="cs-method-card">
+              <span class="cs-method-card__icon" aria-hidden="true">▤</span>
+              <span>Process audit<br /><small>every quotation, rental &amp; delivery note, invoice</small></span>
+            </div>
+            <div class="cs-method-card">
+              <span class="cs-method-card__icon" aria-hidden="true">◇</span>
+              <span>Stakeholder mapping<br /><small>sales, operations, finance</small></span>
+            </div>
+            <div class="cs-method-card">
+              <span class="cs-method-card__icon" aria-hidden="true">◐</span>
+              <span>Workflow shadowing<br /><small>one rental, quote to payment</small></span>
+            </div>
+            <div class="cs-method-card">
+              <span class="cs-method-card__icon" aria-hidden="true">◱</span>
+              <span>Competitive review<br /><small>rental &amp; field-service tools</small></span>
+            </div>
+          </div>
+
+          <div class="cs-sticky-scroll">
+            <div class="cs-sticky-scroll__visual">
+              <div class="cs-sticky-panel" data-panel="1">
+                <span class="cs-sticky-panel__num">4</span>
+                <span class="cs-sticky-panel__caption">documents generated per rental, cross-checked by hand</span>
+              </div>
+              <div class="cs-sticky-panel" data-panel="2">
+                <span class="cs-sticky-panel__num">2</span>
+                <span class="cs-sticky-panel__caption">equipment states — idle or in use — tracked from memory, not a system</span>
+              </div>
+              <div class="cs-sticky-panel" data-panel="3">
+                <span class="cs-sticky-panel__num">2</span>
+                <span class="cs-sticky-panel__caption">separate views for revenue and outstanding invoices, reconciled by hand</span>
+              </div>
+            </div>
+            <div class="cs-sticky-scroll__text">
+              <div class="cs-insight" data-step="1">
+                <span class="cs-insight__index">01</span>
+                <h3>One rental touches four separate documents.</h3>
+                <p>
+                  A single rental could generate a quotation, a rental note, a delivery note, and one invoice per
+                  product line — each filled in and cross-checked by hand across three departments.
+                </p>
+              </div>
+              <div class="cs-insight" data-step="2">
+                <span class="cs-insight__index">02</span>
+                <h3>Equipment status lived in people's heads.</h3>
+                <p>
+                  Whether a scissor lift was idle, out on rent, or due for maintenance depended on someone
+                  remembering — or calling around the yard to check.
+                </p>
+              </div>
+              <div class="cs-insight" data-step="3">
+                <span class="cs-insight__index">03</span>
+                <h3>Money in and money owed were two different views.</h3>
+                <p>
+                  Revenue and outstanding invoices were tracked separately, so a clear cash-flow picture meant
+                  reconciling both by hand at the end of every cycle.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGN PROCESS (timeline) -->
+      <section class="cs-section cs-section--muted" id="process">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Design Process</p>
+          <h2 class="cs-h2" data-reveal>From scattered paperwork to one information architecture.</h2>
+
+          <div class="cs-timeline" data-reveal>
+            <div class="cs-timeline__track">
+              <div class="cs-timeline__fill" id="timeline-fill"></div>
+            </div>
+            <div class="cs-timeline__items">
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Discover</span>
+                <span class="cs-timeline__duration">Audit</span>
+                <p>Audited existing paperwork and mapped how sales, operations, and finance each used it.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Define</span>
+                <span class="cs-timeline__duration">Structure</span>
+                <p>Turned scattered documents into one information architecture spanning 14 modules.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Design</span>
+                <span class="cs-timeline__duration">System</span>
+                <p>Built a shared component system, then applied it across every module's list, detail, and form views.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Validate</span>
+                <span class="cs-timeline__duration">Walkthrough</span>
+                <p>Walked the full quote-to-cash flow end-to-end with stakeholders from each department.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Deliver</span>
+                <span class="cs-timeline__duration">Handoff</span>
+                <p>Documented the system for engineering handoff, module by module.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USER FLOW / IA -->
+      <section class="cs-section" id="ia">
+        <div class="container">
+          <p class="eyebrow" data-reveal>User Flow &amp; Information Architecture</p>
+          <h2 class="cs-h2" data-reveal>From three departments' tools to one sidebar.</h2>
+
+          <div class="cs-ia-compare" data-reveal>
+            <div class="cs-ia-card cs-ia-card--before">
+              <span class="cs-ia-card__label">Before — 3 separate tools</span>
+              <div class="cs-ia-tree cs-ia-tree--fragmented">
+                <div class="cs-ia-node cs-ia-node--root">Sales spreadsheet</div>
+                <div class="cs-ia-node cs-ia-node--root">Operations paper forms</div>
+                <div class="cs-ia-node cs-ia-node--root">Finance spreadsheet</div>
+              </div>
+            </div>
+            <div class="cs-ia-card cs-ia-card--after">
+              <span class="cs-ia-card__label">After — GoGo Rentals</span>
+              <div class="cs-ia-tree">
+                <div class="cs-ia-node cs-ia-node--root">GoGo Rentals</div>
+                <div class="cs-ia-branch">
+                  <div class="cs-ia-node">Overview</div>
+                  <div class="cs-ia-node">Clients</div>
+                  <div class="cs-ia-node">Notes</div>
+                  <div class="cs-ia-node">Invoice</div>
+                  <div class="cs-ia-node">Quotation</div>
+                  <div class="cs-ia-node">Statement</div>
+                  <div class="cs-ia-node">Revenue</div>
+                  <div class="cs-ia-node">Product</div>
+                  <div class="cs-ia-node">Parts</div>
+                  <div class="cs-ia-node">Usage report</div>
+                  <div class="cs-ia-node">Users</div>
+                  <div class="cs-ia-node">Setting</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-flow" data-reveal>
+            <p class="cs-flow__title">Key flow: quote to cash</p>
+            <div class="cs-flow__steps">
+              <div class="cs-flow__step"><span>1</span>Create quotation</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>2</span>Convert to rental notes</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>3</span>Auto-generate invoice</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>4</span>Create delivery notes</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>5</span>Record payment</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY SCREENS, ANNOTATED -->
+      <section class="cs-section cs-section--muted" id="structure">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Key Screens</p>
+          <h2 class="cs-h2" data-reveal>Structure before polish, applied to real data.</h2>
+          <p class="cs-body-text cs-body-text--narrow" data-reveal>
+            Every module follows the same list → detail → create/edit pattern. Annotations below call out the
+            structural decisions that make a 14-module system feel like one product.
+          </p>
+
+          <div class="cs-wireframe-gallery" data-reveal>
+            <div class="cs-wireframe cs-wireframe--photo">
+              <img src="/src/assets/images/gogo/clients-list.png" alt="Client list screen" />
+              <button class="cs-annotation" style="top: 16%; left: 87%" data-note="Every list follows the same table + search + primary action pattern, reused across all 14 modules.">1</button>
+              <button class="cs-annotation" style="top: 30%; left: 96%" data-note="The row menu surfaces entity-specific actions — Create Quotation, Create Rental Notes — pre-scoped to that client.">2</button>
+              <span class="cs-wireframe__caption">Client list</span>
+            </div>
+            <div class="cs-wireframe cs-wireframe--photo">
+              <img src="/src/assets/images/gogo/create-rental-note.png" alt="Create rental notes screen" />
+              <button class="cs-annotation" style="top: 25%; left: 65%" data-note="Multi-item forms let one rental note cover several machines, each with its own rate and quantity.">3</button>
+              <button class="cs-annotation" style="top: 78%; left: 25%" data-note="Total amount is auto-filled as items are added — no manual math for staff.">4</button>
+              <span class="cs-wireframe__caption">Create rental notes</span>
+            </div>
+            <div class="cs-wireframe cs-wireframe--photo">
+              <img src="/src/assets/images/gogo/view-rn.png" alt="Client-facing rental notes document" />
+              <button class="cs-annotation" style="top: 12%; left: 20%" data-note="Client-facing documents use a distinct banner treatment, separate from internal working screens.">5</button>
+              <span class="cs-wireframe__caption">Rental notes document</span>
+            </div>
+            <div class="cs-wireframe cs-wireframe--photo">
+              <img src="/src/assets/images/gogo/product-list.png" alt="Product list screen with status badges" />
+              <button class="cs-annotation" style="top: 20%; left: 92%" data-note="Status badges (Idle / In use) reuse the same color language as invoice status elsewhere in the product.">6</button>
+              <span class="cs-wireframe__caption">Product list</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGN SYSTEM -->
+      <section class="cs-section" id="design-system">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Design System</p>
+          <h2 class="cs-h2" data-reveal>One shared system across 14 modules.</h2>
+          <p class="cs-body-text cs-body-text--narrow" data-reveal>
+            The same sidebar, breadcrumb, card, button, table, and status-badge components are reused verbatim
+            across every module — from Clients to Revenue to Parts. A neutral, low-chroma palette keeps the focus
+            on data; the brand's yellow is reserved for the logo, not spread across the interface.
+          </p>
+
+          <div class="cs-ds-grid" data-reveal>
+            <div class="cs-ds-block cs-ds-block--colors">
+              <h3>Color</h3>
+              <div class="cs-swatch-row">
+                <span class="cs-swatch" style="background: #1f2937"></span>
+                <span class="cs-swatch" style="background: #2f6fed"></span>
+                <span class="cs-swatch" style="background: #16a34a"></span>
+                <span class="cs-swatch" style="background: #f59e0b"></span>
+                <span class="cs-swatch" style="background: #ef4444"></span>
+                <span class="cs-swatch" style="background: #f5c518"></span>
+              </div>
+            </div>
+            <div class="cs-ds-block cs-ds-block--type">
+              <h3>Type scale</h3>
+              <p class="cs-type-sample cs-type-sample--h1">Heading</p>
+              <p class="cs-type-sample cs-type-sample--h2">Subheading</p>
+              <p class="cs-type-sample cs-type-sample--body">Body text for table cells and form labels.</p>
+              <p class="cs-type-sample cs-type-sample--caption">CAPTION / METADATA</p>
+            </div>
+            <div class="cs-ds-block cs-ds-block--components">
+              <h3>Components</h3>
+              <div class="cs-ds-components">
+                <button class="cs-ds-btn cs-ds-btn--primary">Edit</button>
+                <button class="cs-ds-btn cs-ds-btn--secondary">Back</button>
+                <span class="cs-ds-badge cs-ds-badge--success">Settled</span>
+                <span class="cs-ds-badge cs-ds-badge--warn">Partial</span>
+                <span class="cs-ds-badge cs-ds-badge--danger">Unpaid</span>
+                <div class="cs-ds-input">Input field</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HIGH-FIDELITY DESIGNS -->
+      <section class="cs-section cs-section--muted" id="hi-fi">
+        <div class="container">
+          <p class="eyebrow" data-reveal>High-Fidelity Designs</p>
+          <h2 class="cs-h2" data-reveal>The final system, across every department's workflow.</h2>
+
+          <div class="cs-showcase">
+            <div class="cs-showcase__row" data-reveal>
+              <div class="cs-device cs-device--browser cs-reveal-image">
+                <div class="cs-device__chrome"><span></span><span></span><span></span></div>
+                <div class="cs-device__screen cs-device__screen--photo">
+                  <img src="/src/assets/images/gogo/overview.png" alt="Operations dashboard with revenue and invoice status" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>Operations dashboard</h3>
+                <p>Revenue, invoice status, and active rental notes in one glanceable view for daily operations.</p>
+              </div>
+            </div>
+            <div class="cs-showcase__row cs-showcase__row--reverse" data-reveal>
+              <div class="cs-device cs-device--browser cs-reveal-image">
+                <div class="cs-device__chrome"><span></span><span></span><span></span></div>
+                <div class="cs-device__screen cs-device__screen--photo">
+                  <img src="/src/assets/images/gogo/create-invoice.png" alt="Create invoice screen linked to rental notes" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>Rental notes → invoice, connected</h3>
+                <p>Creating a rental note auto-generates its invoice — one document per product line, with totals calculated automatically.</p>
+              </div>
+            </div>
+            <div class="cs-showcase__row" data-reveal>
+              <div class="cs-device cs-device--browser cs-reveal-image">
+                <div class="cs-device__chrome"><span></span><span></span><span></span></div>
+                <div class="cs-device__screen cs-device__screen--photo">
+                  <img src="/src/assets/images/gogo/revenue-all.png" alt="Revenue reporting screen with multiple summary tabs" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>Revenue, sliced five ways</h3>
+                <p>All records, plus summaries by product, model, category, and delivery charge — the same data, viewed however each department needs it.</p>
+              </div>
+            </div>
+            <div class="cs-showcase__row cs-showcase__row--reverse" data-reveal>
+              <div class="cs-device cs-device--browser cs-reveal-image">
+                <div class="cs-device__chrome"><span></span><span></span><span></span></div>
+                <div class="cs-device__screen cs-device__screen--photo">
+                  <img src="/src/assets/images/gogo/client-detail.png" alt="Client detail screen with general, site, and finance contacts" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>Every client, one record</h3>
+                <p>General, site, and finance contacts for each client in one place, with one-click shortcuts to create a quotation or rental note.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY UX DECISIONS -->
+      <section class="cs-section" id="decisions">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Key UX Decisions</p>
+          <h2 class="cs-h2" data-reveal>Three calls that shaped the product.</h2>
+
+          <div class="cs-decision-grid">
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">01</span>
+              <h3>One template, 14 modules</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>A fully custom layout per module</div>
+                <div><span>Shipped</span>One shared list → detail → create/edit scaffolding</div>
+              </div>
+              <p>Staff use this system for minutes at a time between other jobs. Consistency across modules beats per-module optimization when the goal is a short learning curve.</p>
+            </div>
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">02</span>
+              <h3>Blue for actions, yellow for the logo</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>Extend the brand's yellow into buttons and accents</div>
+                <div><span>Shipped</span>A neutral blue action color; yellow stays in the logo</div>
+              </div>
+              <p>Yellow reads as a warning at this data density and has poor contrast as an action color. A calmer neutral system keeps status colors legible without competing.</p>
+            </div>
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">03</span>
+              <h3>Auto-generate invoices, and say so</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>Keep invoice creation a fully separate manual step</div>
+                <div><span>Shipped</span>Invoices generate automatically, with the rule stated on-screen</div>
+              </div>
+              <p>Automation removes duplicate entry, but only if staff trust it. Stating the rule directly on the Create Rental Notes screen keeps the system legible, not magic.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+      <section class="cs-section cs-section--muted" id="challenges">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Challenges</p>
+          <h2 class="cs-h2" data-reveal>What I'd revisit next.</h2>
+
+          <div class="cs-challenge-list">
+            <details class="cs-challenge" data-reveal open>
+              <summary>
+                <span class="cs-challenge__icon">!</span>
+                A single search box doesn't scale with record count
+              </summary>
+              <p>Every list — Clients, Products, Parts, Users — relies on one free-text search field. As records grow past a few hundred, status and date filtering will matter more than search alone. This is the top item on my list for the next iteration.</p>
+            </details>
+            <details class="cs-challenge" data-reveal>
+              <summary>
+                <span class="cs-challenge__icon">!</span>
+                The row menu can overlap the row below it
+              </summary>
+              <p>In dense tables, the kebab menu's dropdown sometimes sits over the next row's data. It's a small thing, but worth fixing before the record count grows further and the overlap gets more disruptive.</p>
+            </details>
+            <details class="cs-challenge" data-reveal>
+              <summary>
+                <span class="cs-challenge__icon">!</span>
+                Access levels are implied, not designed
+              </summary>
+              <p>The Users module shows an "Admin" badge but no second role exists yet. Before rolling access out beyond a single admin team, I'd want to define what a non-admin view actually restricts.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS & IMPACT -->
+      <section class="cs-section" id="results">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Results &amp; Impact</p>
+          <h2 class="cs-h2" data-reveal>What shipped.</h2>
+
+          <div class="cs-metrics-grid" data-reveal>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="14">0</span>
+              <span class="cs-metric__label">Modules shipped as one connected system</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="4">0</span>
+              <span class="cs-metric__label">Document types linked automatically</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="50" data-suffix="+">0</span>
+              <span class="cs-metric__label">Screens built from one component system</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="1">0</span>
+              <span class="cs-metric__label">Shared system replacing three departments' tools</span>
+            </div>
+          </div>
+
+          <p class="cs-body-text cs-body-text--narrow cs-results-note" data-reveal>
+            GoGo Rentals hadn't measured the platform's business impact at the time of writing — the numbers above
+            reflect what shipped, not audited outcomes.
+          </p>
+        </div>
+      </section>
+
+      <!-- REFLECTION -->
+      <section class="cs-section cs-section--reflection" id="reflection">
+        <div class="container cs-reflection">
+          <p class="eyebrow eyebrow--center" data-reveal>Reflection</p>
+          <p class="cs-reflection__text" data-reveal>
+            The hardest part of this project wasn't any single screen — it was resisting the urge to design 14
+            bespoke modules instead of one adaptable system. Reusing a shared list → detail → create/edit template
+            across departments as different as sales, operations, and finance meant real trade-offs: some modules
+            could have been more specialized. In hindsight, I'd push earlier for basic list filtering and a defined
+            second user role — both will matter more as the system scales past its first team of users. Choosing
+            one shared design system over per-module polish is still the decision I'd make again first.
+          </p>
+        </div>
+      </section>
+
+      <section class="cs-section cs-cta">
+        <div class="container cs-cta__inner" data-reveal>
+          <h2 class="cs-h2">Have a fragmented operation of your own?</h2>
+          <div class="cs-cta__actions">
+            <a href="./index.html#contact" class="btn btn--primary">
+              Let's Connect
+              <img src="/src/assets/icons/connect-arrow.svg" alt="" width="14" height="14" />
+            </a>
+            <a href="./index.html#work" class="btn btn--outline">Back to all projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span class="footer__logo">HAE<span class="accent">.</span></span>
+        <span class="footer__tagline">UI/UX · Business Analysis · AI Workflow</span>
+        <span class="footer__copy">© 2024 Trâm Lê</span>
+      </div>
+    </footer>
+
+    <div class="cs-tooltip" id="cs-tooltip" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/gogo-rentals.js"></script>
+  </body>
+</html>
