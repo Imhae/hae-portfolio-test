@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Swapifly — designing a cross-platform marketplace for buying, selling, and trading, across native mobile and web." />
+    <title>Swapifly — Case Study — Trâm Lê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="cs-body">
+    <div class="scroll-progress"><div class="scroll-progress__bar" id="scroll-progress-bar"></div></div>
+
+    <header class="nav">
+      <div class="nav__inner">
+        <a href="./index.html" class="nav__logo">HAE<span class="accent">.</span></a>
+        <a href="./index.html#work" class="cs-back">
+          <img src="/src/assets/icons/arrow-up-right.svg" alt="" width="12" height="12" class="cs-back__icon" />
+          <span>All projects</span>
+        </a>
+        <a href="./index.html#contact" class="btn btn--ghost btn--sm">Let's Talk</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="cs-hero" id="hero">
+        <div class="container cs-hero__grid">
+          <div class="cs-hero__content" data-reveal>
+            <span class="tag">Consumer Marketplace · Mobile App · Web</span>
+            <h1 class="cs-hero__title">Designing a marketplace people trust enough to trade on.</h1>
+            <p class="cs-hero__lead">
+              End-to-end UI/UX for Swapifly, a marketplace for buying, selling, and trading goods — designed as one
+              connected system across a native mobile app and a responsive web app.
+            </p>
+            <dl class="cs-meta-row">
+              <div class="cs-meta-row__item">
+                <dt>Role</dt>
+                <dd>UI/UX Designer, end-to-end</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Scope</dt>
+                <dd>Mobile app + Web, one design system</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Market</dt>
+                <dd>Hong Kong (HK$, WeChat login)</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Platform</dt>
+                <dd>iOS / Android app · Responsive web</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="cs-hero__visual" data-parallax>
+          <div class="cs-hero__split">
+            <div class="cs-device cs-device--browser cs-device--float">
+              <div class="cs-device__chrome">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="cs-device__screen cs-device__screen--photo">
+                <img src="/src/assets/images/swapifly/home-desktop.png" alt="Swapifly web homepage" />
+              </div>
+            </div>
+            <div class="cs-phone">
+              <div class="cs-phone__notch"></div>
+              <div class="cs-phone__screen cs-phone__screen--crop">
+                <img src="/src/assets/images/swapifly/home-mobile.png" alt="Swapifly mobile app home screen" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT OVERVIEW -->
+      <section class="cs-section" id="overview">
+        <div class="container cs-overview__grid">
+          <div class="cs-overview__text" data-reveal>
+            <p class="eyebrow">Project Overview</p>
+            <h2 class="cs-h2">Browse, search, sell, chat, and manage a listing — on any screen.</h2>
+            <p class="cs-body-text">
+              Swapifly is a peer-to-peer marketplace for buying, selling, and trading goods, spanning everything from
+              everyday electronics to limited-edition and luxury items. I designed the full experience end-to-end —
+              browsing, search, listing an item, in-app negotiation, seller tools, and account management — as a
+              native mobile app and a responsive web app, built from one shared design system.
+            </p>
+            <ul class="cs-fact-list">
+              <li><span>Role</span>UI/UX Designer, end-to-end product + design system</li>
+              <li><span>Scope</span>Native mobile app and responsive web app</li>
+              <li><span>Category</span>Peer-to-peer marketplace, general + limited-edition/luxury resale</li>
+              <li><span>Market</span>Hong Kong — HK$ pricing, WeChat login, HK Business Registration verification</li>
+            </ul>
+          </div>
+          <div class="cs-overview__stats">
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="2">0</span>
+              <span class="cs-stat-card__label">Platforms designed as one connected system</span>
+            </div>
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="35">0</span>
+              <span class="cs-stat-card__label">Product sections across the mobile and web Figma files</span>
+            </div>
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="300" data-suffix="+">0</span>
+              <span class="cs-stat-card__label">Screens and states designed</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROBLEM & GOALS -->
+      <section class="cs-section cs-section--muted" id="problem">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Problem &amp; Goals</p>
+          <h2 class="cs-h2" data-reveal>Full-featured and simple rarely come together.</h2>
+          <div class="cs-split">
+            <div class="cs-callout cs-callout--problem" data-reveal>
+              <span class="cs-callout__tag">Problem</span>
+              <ul class="cs-callout__list">
+                <li>Peer-to-peer marketplaces need a wide feature set — categories, offers, chat, seller tools, trust and verification — to work at all.</li>
+                <li>That same breadth is what usually makes marketplace apps feel cluttered the moment a new user tries to list or browse.</li>
+                <li>Trust is the real blocker to a first transaction: buyers and sellers who don't know each other need visible reasons to believe the other side is legitimate.</li>
+              </ul>
+            </div>
+            <div class="cs-callout cs-callout--goal" data-reveal>
+              <span class="cs-callout__tag">Goals</span>
+              <ul class="cs-callout__list">
+                <li>Design a browsing, search, selling, and chat experience that stays simple and intuitive at every step, without cutting marketplace functionality.</li>
+                <li>Give buyers and sellers visible trust signals — identity verification, merchant status — without turning onboarding into friction.</li>
+                <li>Deliver one consistent product across mobile and web, so the experience never has to be relearned when a user switches device.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGN PROCESS -->
+      <section class="cs-section cs-section--muted" id="process">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Design Process</p>
+          <h2 class="cs-h2" data-reveal>Mobile first, then extended into a second platform.</h2>
+
+          <div class="cs-timeline" data-reveal>
+            <div class="cs-timeline__track">
+              <div class="cs-timeline__fill" id="timeline-fill"></div>
+            </div>
+            <div class="cs-timeline__items">
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Structure</span>
+                <span class="cs-timeline__duration">IA &amp; flows</span>
+                <p>Mapped the information architecture and core user flows around five tasks: Browse, Search, Sell, Chat, Account.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Design mobile</span>
+                <span class="cs-timeline__duration">App first</span>
+                <p>Designed the native mobile app first, establishing the core component set against the tightest viewport.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Extend to web</span>
+                <span class="cs-timeline__duration">Adapt, don't copy</span>
+                <p>Extended the same IA to a responsive web app, adapting layout and navigation to a wider viewport rather than stretching the mobile screens.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Refine</span>
+                <span class="cs-timeline__duration">Iterate</span>
+                <p>Iterated on layout, components, and navigation across both platforms to keep patterns consistent as new modules were added.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Systematize</span>
+                <span class="cs-timeline__duration">Design system</span>
+                <p>Consolidated recurring patterns — cards, badges, buttons, forms — into one shared system reused across every module.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IA / PLATFORM COMPARE -->
+      <section class="cs-section" id="ia">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Information Architecture</p>
+          <h2 class="cs-h2" data-reveal>One structure, two navigation shells.</h2>
+          <p class="cs-body-text cs-body-text--narrow" data-reveal>
+            Both platforms share the same five-task backbone — Browse, Search, Sell, Chat, Account — but each
+            expresses it through the navigation pattern native to its context: a bottom tab bar for the mobile app,
+            a top nav plus a persistent Sell action for the web app.
+          </p>
+
+          <div class="cs-platform-compare" data-reveal>
+            <div class="cs-platform-card">
+              <div class="cs-platform-card__header">
+                <h3>Mobile app</h3>
+                <span class="cs-platform-badge cs-platform-badge--mobile">Bottom nav</span>
+              </div>
+              <div class="cs-platform-card__nav">
+                <span>Home</span>
+                <span>Bookmark</span>
+                <span>Sell (FAB)</span>
+                <span>Inbox</span>
+                <span>Account</span>
+              </div>
+              <p class="cs-platform-card__note">15 product sections in the mobile Figma file — Login &amp; Register, Splash &amp; Tutorial, Home, Search, Sell, Inbox, AI Chat, Account, Setting, Bookmark, Notice, Coin, Ads, and alert/error states.</p>
+            </div>
+            <div class="cs-platform-card">
+              <div class="cs-platform-card__header">
+                <h3>Web app</h3>
+                <span class="cs-platform-badge cs-platform-badge--web">Top nav</span>
+              </div>
+              <div class="cs-platform-card__nav">
+                <span>All categories</span>
+                <span>Search</span>
+                <span>Bookmark</span>
+                <span>Inbox</span>
+                <span>Account</span>
+                <span>Sell (persistent CTA)</span>
+              </div>
+              <p class="cs-platform-card__note">20 product sections in the web Figma file — each core module (Home, Search, Sell, Inbox, Account, Setting, Bookmark, Notice, AI Chat) built separately for desktop and mobile-web breakpoints.</p>
+            </div>
+          </div>
+
+          <div class="cs-flow" data-reveal>
+            <p class="cs-flow__title">Key flow: list an item for sale</p>
+            <div class="cs-flow__steps">
+              <div class="cs-flow__step"><span>1</span>Choose category &amp; add photos</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>2</span>AI-assisted description</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>3</span>Set price &amp; details</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>4</span>Publish listing</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>5</span>Track performance</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY SCREENS, ANNOTATED -->
+      <section class="cs-section cs-section--muted" id="structure">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Key Screens</p>
+          <h2 class="cs-h2" data-reveal>The everyday loop — browse, save, sell, sign up safely.</h2>
+          <p class="cs-body-text cs-body-text--narrow" data-reveal>
+            The same card pattern — image, title, price, save action — repeats across Home, Search, and Bookmark, so
+            recognition builds the first time a user browses and pays off on every screen after.
+          </p>
+
+          <div class="cs-wireframe-gallery" data-reveal>
+            <div class="cs-wireframe cs-wireframe--photo">
+              <img src="/src/assets/images/swapifly/search-results.png" alt="Swapifly search results screen" />
+              <button class="cs-annotation" style="top: 8%; left: 88%" data-note="Results carry a 'New' badge and a one-tap bookmark toggle directly on the card — no need to open a listing to save it.">1</button>
+              <button class="cs-annotation" style="top: 30%; left: 15%" data-note="Prices are shown in HK$ with the seller's handle underneath, setting buyer expectations before they tap in.">2</button>
+              <span class="cs-wireframe__caption">Search results</span>
+            </div>
+            <div class="cs-wireframe cs-wireframe--photo">
+              <img src="/src/assets/images/swapifly/bookmark.png" alt="Swapifly saved items screen" />
+              <button class="cs-annotation" style="top: 10%; left: 88%" data-note="Saved items reuse the exact card pattern from Search and Home — spanning categories from designer bags to collectibles, with zero new UI to learn.">3</button>
+              <span class="cs-wireframe__caption">Bookmark</span>
+            </div>
+            <div class="cs-wireframe cs-wireframe--photo">
+              <img src="/src/assets/images/swapifly/sell-ai-suggestion.png" alt="Swapifly AI-assisted item description screen" />
+              <button class="cs-annotation" style="top: 20%; left: 50%" data-note="AI drafts a full listing description from a few starting words, staying editable inline so the seller keeps final control.">4</button>
+              <span class="cs-wireframe__caption">AI-assisted description</span>
+            </div>
+            <div class="cs-wireframe cs-wireframe--photo">
+              <img src="/src/assets/images/swapifly/register.png" alt="Swapifly registration screen" />
+              <button class="cs-annotation" style="top: 15%; left: 50%" data-note="The safety promise is stated before the form: 'we use email account to verify your identity' — trust framed as the reason for friction, not just a rule.">5</button>
+              <button class="cs-annotation" style="top: 78%; left: 50%" data-note="Facebook, Google, WeChat, and Apple sign-in cover the identity providers relevant to a Hong Kong audience.">6</button>
+              <span class="cs-wireframe__caption">Register</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGN SYSTEM -->
+      <section class="cs-section" id="design-system">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Design System</p>
+          <h2 class="cs-h2" data-reveal>One token set, expressed natively on each platform.</h2>
+          <p class="cs-body-text cs-body-text--narrow" data-reveal>
+            A single brand pink drives every primary action and status highlight, paired with a neutral gray scale
+            that keeps dense listing grids legible. The same card, badge, and button components appear on both
+            platforms — only density and spacing adapt to the viewport.
+          </p>
+
+          <div class="cs-ds-grid" data-reveal>
+            <div class="cs-ds-block cs-ds-block--colors">
+              <h3>Color</h3>
+              <div class="cs-swatch-row">
+                <span class="cs-swatch" style="background: #ff0073"></span>
+                <span class="cs-swatch" style="background: #383838"></span>
+                <span class="cs-swatch" style="background: #8f8f8f"></span>
+                <span class="cs-swatch" style="background: #eae9e9"></span>
+                <span class="cs-swatch" style="background: #f5f5f5"></span>
+                <span class="cs-swatch" style="background: #549e62"></span>
+              </div>
+            </div>
+            <div class="cs-ds-block cs-ds-block--type">
+              <h3>Type scale</h3>
+              <p class="cs-type-sample cs-type-sample--h1" style="font-family: 'DM Sans', sans-serif;">Heading</p>
+              <p class="cs-type-sample cs-type-sample--h2" style="font-family: 'DM Sans', sans-serif;">Subheading</p>
+              <p class="cs-type-sample cs-type-sample--body">Poppins body text for listings, forms, and labels.</p>
+              <p class="cs-type-sample cs-type-sample--caption">CAPTION / METADATA</p>
+            </div>
+            <div class="cs-ds-block cs-ds-block--components">
+              <h3>Components</h3>
+              <div class="cs-ds-components">
+                <button class="cs-ds-btn cs-ds-btn--primary" style="background: #ff0073;">Sell</button>
+                <button class="cs-ds-btn cs-ds-btn--secondary">Follow</button>
+                <span class="cs-ds-badge cs-ds-badge--success">New</span>
+                <span class="cs-ds-badge" style="background: rgba(255,0,115,0.12); color:#ff0073;">Merchant Verified</span>
+                <div class="cs-ds-input">HK$ 216.27</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HIGH-FIDELITY DESIGNS -->
+      <section class="cs-section cs-section--muted" id="hi-fi">
+        <div class="container">
+          <p class="eyebrow" data-reveal>High-Fidelity Designs</p>
+          <h2 class="cs-h2" data-reveal>The features that make Swapifly more than a listings grid.</h2>
+
+          <div class="cs-showcase">
+            <div class="cs-showcase__row" data-reveal>
+              <div class="cs-device cs-device--browser cs-reveal-image">
+                <div class="cs-device__chrome"><span></span><span></span><span></span></div>
+                <div class="cs-device__screen cs-device__screen--photo">
+                  <img src="/src/assets/images/swapifly/home-desktop.png" alt="Swapifly web homepage with categories and brand rail" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>One homepage, every category</h3>
+                <p>Category tabs, a promo carousel, a brand rail (LV, Chanel, Hermès, Rolex, Mercedes-Benz), and a persistent Sell button — the full breadth of the marketplace on one scroll.</p>
+              </div>
+            </div>
+            <div class="cs-showcase__row cs-showcase__row--reverse" data-reveal>
+              <div class="cs-phone cs-reveal-image">
+                <div class="cs-phone__notch"></div>
+                <div class="cs-phone__screen">
+                  <img src="/src/assets/images/swapifly/sell-ai-suggestion.png" alt="AI-assisted item description on mobile" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>AI writes the first draft, seller keeps the pen</h3>
+                <p>Typing a few keywords about an item generates a full, editable description plus optional promotional copy — lowering the effort of the one step most likely to stall a listing.</p>
+              </div>
+            </div>
+            <div class="cs-showcase__row" data-reveal>
+              <div class="cs-device cs-device--browser cs-reveal-image">
+                <div class="cs-device__chrome"><span></span><span></span><span></span></div>
+                <div class="cs-device__screen cs-device__screen--photo">
+                  <img src="/src/assets/images/swapifly/seller-analytics.png" alt="Swapifly seller item performance report" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>Sellers see what's working</h3>
+                <p>A per-item report — impressions, clicks, inbox contacts, a 7-day trend — gives sellers a reason to come back to the web app, not just the app.</p>
+              </div>
+            </div>
+            <div class="cs-showcase__row cs-showcase__row--reverse" data-reveal>
+              <div class="cs-phone cs-reveal-image">
+                <div class="cs-phone__notch"></div>
+                <div class="cs-phone__screen">
+                  <img src="/src/assets/images/swapifly/ai-chat-toggle.png" alt="AI auto-reply toggle per buyer in Swapifly Inbox" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>AI auto-reply, opted in per conversation</h3>
+                <p>Sellers choose which buyers get an AI-assisted auto-reply — a scoped opt-in rather than a blanket chatbot, keeping negotiation in the seller's hands by default.</p>
+              </div>
+            </div>
+            <div class="cs-showcase__row" data-reveal>
+              <div class="cs-device cs-device--browser cs-reveal-image">
+                <div class="cs-device__chrome"><span></span><span></span><span></span></div>
+                <div class="cs-device__screen cs-device__screen--photo">
+                  <img src="/src/assets/images/swapifly/account-desktop.png" alt="Swapifly merchant profile with verification tiers" />
+                </div>
+              </div>
+              <div class="cs-showcase__caption">
+                <h3>Merchant trust, broken into checkable steps</h3>
+                <p>A merchant badge expands into three independent checks — physical address, online shop, Business Registration — so trust reads as evidence, not just a checkmark.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY UX DECISIONS -->
+      <section class="cs-section" id="decisions">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Key UX Decisions</p>
+          <h2 class="cs-h2" data-reveal>Three calls that shaped the product.</h2>
+
+          <div class="cs-decision-grid">
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">01</span>
+              <h3>One system, two native experiences</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>A single responsive layout stretched across breakpoints</div>
+                <div><span>Shipped</span>Two purpose-built experiences sharing one component system</div>
+              </div>
+              <p>Mobile and web serve different moments — quick browsing/selling on the go versus deeper seller management at a desk. Designing each natively let both moments feel right, without duplicating the visual language.</p>
+            </div>
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">02</span>
+              <h3>Organized by task, not by menu depth</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>A traditional category-first navigation tree</div>
+                <div><span>Shipped</span>A 5-task IA — Browse, Search, Sell, Chat, Account</div>
+              </div>
+              <p>A marketplace can accumulate categories indefinitely. Anchoring navigation to what a user is trying to do, not what's for sale, kept the structure stable as the catalog grew.</p>
+            </div>
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">03</span>
+              <h3>Trust as a checklist, not a badge</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>A single "Verified" badge with no further detail</div>
+                <div><span>Shipped</span>Three separate, visible checks — address, shop, Business Registration</div>
+              </div>
+              <p>In a resale market, "verified" alone is easy to distrust. Breaking it into specific, checkable claims gives buyers a reason to believe it, and gives sellers a reason to complete every step.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHALLENGES -->
+      <section class="cs-section cs-section--muted" id="challenges">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Challenges</p>
+          <h2 class="cs-h2" data-reveal>What I'd revisit next.</h2>
+
+          <div class="cs-challenge-list">
+            <details class="cs-challenge" data-reveal open>
+              <summary>
+                <span class="cs-challenge__icon">!</span>
+                Feature breadth kept pulling against simplicity
+              </summary>
+              <p>Verification tiers, a coin economy, AI assistance, and seller analytics all needed a place — the constant tension was keeping the core buy/sell loop from feeling cluttered as each one shipped. Pushing power-user tools like analytics and verification detail into secondary screens, and keeping the primary mobile flow to Browse/Search/Sell/Chat/Account, was the main lever for holding that line.</p>
+            </details>
+            <details class="cs-challenge" data-reveal>
+              <summary>
+                <span class="cs-challenge__icon">!</span>
+                Keeping two platforms honestly in sync
+              </summary>
+              <p>Every new pattern had to be validated in both contexts before it shipped. Some mobile-first ideas — like a full-page registration flow — didn't translate cleanly to a wider viewport and needed a genuinely different shape on web (a modal), which meant consistency had to mean "same system," not "same layout."</p>
+            </details>
+            <details class="cs-challenge" data-reveal>
+              <summary>
+                <span class="cs-challenge__icon">!</span>
+                Retention content lagged the interaction design
+              </summary>
+              <p>At the time of this review, some of the Coin section's engagement copy — the "Market Insights" task cards in Task Center — was still placeholder text. The interaction pattern for the coin economy was in place before its content strategy was, which is typical, but worth flagging as unfinished rather than presenting it as final.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS & IMPACT -->
+      <section class="cs-section" id="results">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Results &amp; Impact</p>
+          <h2 class="cs-h2" data-reveal>What shipped.</h2>
+
+          <div class="cs-metrics-grid" data-reveal>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="2">0</span>
+              <span class="cs-metric__label">Platforms shipped as one connected system</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="35">0</span>
+              <span class="cs-metric__label">Product sections across mobile and web</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="300" data-suffix="+">0</span>
+              <span class="cs-metric__label">Screens and states designed</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="1">0</span>
+              <span class="cs-metric__label">Shared design system driving both platforms</span>
+            </div>
+          </div>
+
+          <p class="cs-body-text cs-body-text--narrow cs-results-note" data-reveal>
+            Swapifly's UI/UX design is complete for both mobile and web at the time of writing. The product has not
+            launched publicly, so there is no usage or business data to report — the numbers above reflect design
+            scope, not audited outcomes.
+          </p>
+        </div>
+      </section>
+
+      <!-- REFLECTION -->
+      <section class="cs-section cs-section--reflection" id="reflection">
+        <div class="container cs-reflection">
+          <p class="eyebrow eyebrow--center" data-reveal>Reflection</p>
+          <p class="cs-reflection__text" data-reveal>
+            The hardest part of Swapifly wasn't any single screen — it was holding the line on simplicity while the
+            feature list kept growing. Verification, coins, AI assistance, and seller analytics all had a real
+            reason to exist, and the discipline was in deciding what belonged in the primary mobile loop versus what
+            could live one layer deeper. Designing mobile first and then extending — rather than copying — into web
+            forced every pattern to prove itself in two contexts before it shipped, which is slower but caught
+            mismatches early. If I revisited this today, I'd tackle the coin economy's content strategy alongside
+            its interaction design instead of after, and push earlier for usability testing on the verification
+            flow specifically, since trust is the one thing this product can't afford to get wrong.
+          </p>
+        </div>
+      </section>
+
+      <section class="cs-section cs-cta">
+        <div class="container cs-cta__inner" data-reveal>
+          <h2 class="cs-h2">Building a marketplace of your own?</h2>
+          <div class="cs-cta__actions">
+            <a href="./index.html#contact" class="btn btn--primary">
+              Let's Connect
+              <img src="/src/assets/icons/connect-arrow.svg" alt="" width="14" height="14" />
+            </a>
+            <a href="./index.html#work" class="btn btn--outline">Back to all projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span class="footer__logo">HAE<span class="accent">.</span></span>
+        <span class="footer__tagline">UI/UX · Business Analysis · AI Workflow</span>
+        <span class="footer__copy">© 2024 Trâm Lê</span>
+      </div>
+    </footer>
+
+    <div class="cs-tooltip" id="cs-tooltip" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/swapifly.js"></script>
+  </body>
+</html>

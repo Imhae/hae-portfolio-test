@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         gogoRentals: resolve(__dirname, 'gogo-rentals.html'),
+        swapifly: resolve(__dirname, 'swapifly.html'),
       },
     },
   },

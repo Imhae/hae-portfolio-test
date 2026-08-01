@@ -1,0 +1,175 @@
+@import './gogo-rentals.css';
+
+:root {
+  --sw-pink: #ff0073;
+  --sw-pink-bg: rgba(255, 0, 115, 0.08);
+  --sw-pink-border: rgba(255, 0, 115, 0.24);
+}
+
+/* Platform badges (mobile / web) ------------------------------------- */
+.cs-platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.cs-platform-badge--mobile {
+  color: var(--sw-pink);
+  background: var(--sw-pink-bg);
+  border-color: var(--sw-pink-border);
+}
+
+.cs-platform-badge--web {
+  color: var(--accent);
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+/* Phone device mockup -------------------------------------------------- */
+.cs-phone {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 40px;
+  background: #101018;
+  border: 1px solid var(--border-softer);
+  box-shadow: 0 40px 90px -36px rgba(0, 0, 0, 0.75);
+}
+
+.cs-phone__notch {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 16px;
+  background: #101018;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.cs-phone__screen {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.cs-phone__screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cs-phone__screen--crop {
+  max-height: 500px;
+}
+
+.cs-phone__screen--crop img {
+  object-fit: cover;
+  object-position: top;
+  height: 500px;
+  width: 100%;
+}
+
+.cs-phone--sm {
+  max-width: 220px;
+}
+
+/* Split hero visual: phone + browser side by side ----------------------- */
+.cs-hero__split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.cs-hero__split .cs-device {
+  max-width: 620px;
+  margin-bottom: 0;
+}
+
+.cs-hero__split .cs-phone {
+  margin-bottom: -40px;
+  flex-shrink: 0;
+}
+
+/* Platform compare (mobile vs web IA) ------------------------------------ */
+.cs-platform-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.cs-platform-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-softer);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.cs-platform-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cs-platform-card__header h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-100);
+  margin: 0;
+}
+
+.cs-platform-card__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cs-platform-card__nav span {
+  font-size: 12px;
+  color: var(--text-55);
+  background: var(--bg);
+  border: 1px solid var(--border-pill);
+  border-radius: 999px;
+  padding: 6px 13px;
+}
+
+.cs-platform-card__note {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-38);
+  margin: 16px 0 0;
+}
+
+/* Responsive --------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .cs-hero__split {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cs-hero__split .cs-phone {
+    margin-bottom: 0;
+    order: -1;
+  }
+
+  .cs-platform-compare {
+    grid-template-columns: 1fr;
+  }
+}
