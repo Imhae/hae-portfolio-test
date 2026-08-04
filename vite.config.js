@@ -7,7 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        gogoRentals: resolve(__dirname, 'gogo-rentals.html'),
+        hongDaLandscaping: resolve(__dirname, 'hong-da-landscaping.html'),
+        swapifly: resolve(__dirname, 'swapifly.html'),
       },
     },
   },

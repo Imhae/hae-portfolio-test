@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hong Da Landscaping — designing a shared web admin and mobile app for a Hong Kong landscaping and tendering business." />
+    <title>Hong Da Landscaping — Case Study — Trâm Lê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="cs-body">
+    <div class="scroll-progress"><div class="scroll-progress__bar" id="scroll-progress-bar"></div></div>
+
+    <header class="nav">
+      <div class="nav__inner">
+        <a href="./index.html" class="nav__logo">HAE<span class="accent">.</span></a>
+        <a href="./index.html#work" class="cs-back">
+          <img src="/src/assets/icons/arrow-up-right.svg" alt="" width="12" height="12" class="cs-back__icon" />
+          <span>All projects</span>
+        </a>
+        <a href="./index.html#contact" class="btn btn--ghost btn--sm">Let's Talk</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="cs-hero" id="hero">
+        <div class="container cs-hero__grid">
+          <div class="cs-hero__content" data-reveal>
+            <span class="tag">Web Admin + Mobile App · Landscaping &amp; Tender Management</span>
+            <h1 class="cs-hero__title">One operations backbone, two interfaces.</h1>
+            <p class="cs-hero__lead">
+              Hong Da Landscaping runs plant supply and tendering for construction projects across Hong Kong. I
+              designed a web admin covering the full back office, plus a companion mobile app for field workers to
+              log tender progress on site — one shared design system, two purpose-built experiences.
+            </p>
+            <dl class="cs-meta-row">
+              <div class="cs-meta-row__item">
+                <dt>Role</dt>
+                <dd>UI/UX Designer</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Scope</dt>
+                <dd>Web + mobile, design system</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Client</dt>
+                <dd>Hong Da Landscaping (Hong Kong)</dd>
+              </div>
+              <div class="cs-meta-row__item">
+                <dt>Platform</dt>
+                <dd>Web (desktop) + iOS/Android</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="cs-hero__visual cs-hero__visual--dual" data-parallax>
+          <div class="cs-device cs-device--browser cs-device--float">
+            <div class="cs-device__chrome">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="cs-device__screen cs-device__screen--photo cs-device__screen--crop-top">
+              <img src="/src/assets/images/hongda/org-management.png" alt="Hong Da web admin — organisation management list" />
+            </div>
+          </div>
+          <div class="cs-device cs-device--phone cs-device--overlay">
+            <div class="cs-device__screen cs-device__screen--photo">
+              <img src="/src/assets/images/hongda-mobile/upload-progress.png" alt="Hong Da mobile app — field worker upload screen" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OVERVIEW (incl. problem & goals) -->
+      <section class="cs-section" id="overview">
+        <div class="container cs-overview__grid">
+          <div class="cs-overview__text" data-reveal>
+            <p class="eyebrow">Project Overview</p>
+            <h2 class="cs-h2">A back office for the office, a camera-first app for the site.</h2>
+            <p class="cs-body-text">
+              Hong Da's team splits across two very different contexts: office staff managing clients, warehouses,
+              products, and tender proposals at a desk, and field workers documenting planting progress on active
+              construction sites. I designed one admin system for the former and a lightweight companion app for the
+              latter — sharing the same brand and data model, built for how each group actually works.
+            </p>
+            <div class="cs-mini-split">
+              <div class="cs-mini-callout cs-mini-callout--problem">
+                <span class="cs-mini-callout__tag">Problem</span>
+                Office and field work needed one shared source of truth — but a dense admin table isn't usable
+                one-handed on a job site, and a camera-first app can't hold 20+ back-office modules.
+              </div>
+              <div class="cs-mini-callout cs-mini-callout--goal">
+                <span class="cs-mini-callout__tag">Goal</span>
+                Give each context its own interface — full-featured web admin, minimal mobile capture — on one brand
+                and one design system.
+              </div>
+            </div>
+          </div>
+          <div class="cs-overview__stats">
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="20" data-suffix="+">0</span>
+              <span class="cs-stat-card__label">Modules in the web admin, one shared system</span>
+            </div>
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="2">0</span>
+              <span class="cs-stat-card__label">Platforms — web admin and a native mobile app</span>
+            </div>
+            <div class="cs-stat-card" data-reveal>
+              <span class="cs-stat-card__num" data-counter="3">0</span>
+              <span class="cs-stat-card__label">Tender proposal states: draft, public, awarded</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGN PROCESS (shortened) -->
+      <section class="cs-section cs-section--muted" id="process">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Design Process</p>
+          <h2 class="cs-h2" data-reveal>From two user groups to two interfaces, one system.</h2>
+
+          <div class="cs-timeline" data-reveal>
+            <div class="cs-timeline__track">
+              <div class="cs-timeline__fill" id="timeline-fill"></div>
+            </div>
+            <div class="cs-timeline__items">
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Discover</span>
+                <p>Mapped office vs. field workflows.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Define</span>
+                <p>Split scope: full admin vs. single-task app.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Design</span>
+                <p>Built one component system, two UIs.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Validate</span>
+                <p>Walked the tender flow end-to-end.</p>
+              </div>
+              <div class="cs-timeline__item">
+                <span class="cs-timeline__dot"></span>
+                <span class="cs-timeline__phase">Deliver</span>
+                <p>Documented both platforms for handoff.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IA & KEY FLOW -->
+      <section class="cs-section" id="ia">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Structure &amp; Key Flow</p>
+          <h2 class="cs-h2" data-reveal>Two interfaces, sized to the task.</h2>
+
+          <div class="cs-ia-compare" data-reveal>
+            <div class="cs-ia-card">
+              <span class="cs-ia-card__label">Web — office &amp; operations</span>
+              <div class="cs-ia-tree">
+                <div class="cs-ia-node cs-ia-node--root">Hong Da Admin</div>
+                <div class="cs-ia-branch">
+                  <div class="cs-ia-node">Organisation</div>
+                  <div class="cs-ia-node">Client</div>
+                  <div class="cs-ia-node">Warehouse</div>
+                  <div class="cs-ia-node">Supplier</div>
+                  <div class="cs-ia-node">Product</div>
+                  <div class="cs-ia-node">Category / Attribute / Unit / Tags</div>
+                  <div class="cs-ia-node">Tenderer</div>
+                  <div class="cs-ia-node">Photo library</div>
+                  <div class="cs-ia-node">Administration</div>
+                  <div class="cs-ia-node">Reports</div>
+                </div>
+              </div>
+            </div>
+            <div class="cs-ia-card">
+              <span class="cs-ia-card__label">Mobile — field worker</span>
+              <div class="cs-ia-linear">
+                <div class="cs-ia-node cs-ia-node--root">Sign in</div>
+                <div class="cs-ia-linear__arrow">↓</div>
+                <div class="cs-ia-node">Tender project list</div>
+                <div class="cs-ia-linear__arrow">↓</div>
+                <div class="cs-ia-node">Upload up to 5 photos + tags</div>
+                <div class="cs-ia-linear__arrow">↓</div>
+                <div class="cs-ia-node">Submit</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-flow" data-reveal>
+            <p class="cs-flow__title">Key flow: tender proposal to award</p>
+            <div class="cs-flow__steps">
+              <div class="cs-flow__step"><span>1</span>Fill tender &amp; client details</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>2</span>Select products, quantities, pricing</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>3</span>Save as draft or submit as public</div>
+              <div class="cs-flow__arrow" aria-hidden="true">→</div>
+              <div class="cs-flow__step"><span>4</span>Mark awarded</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREENS (merged: annotated web gallery + mobile strip) -->
+      <section class="cs-section cs-section--muted" id="screens">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Screens</p>
+          <h2 class="cs-h2" data-reveal>The same system, applied to both platforms.</h2>
+          <p class="cs-body-text cs-body-text--narrow" data-reveal>
+            Every web module follows the same list → detail → create/edit pattern. The mobile app strips that down
+            to one task: capture progress, tag it, submit it.
+          </p>
+
+          <div class="cs-screens-group" data-reveal>
+            <span class="cs-screens-group__label">Web admin</span>
+            <div class="cs-wireframe-gallery">
+              <div class="cs-wireframe cs-wireframe--photo">
+                <img src="/src/assets/images/hongda/tender-proposal.png" alt="Create Tender Proposal screen" />
+                <button class="cs-annotation" style="top: 14%; left: 92%" data-note="Grand total, adjustments, and earn/loss recalculate live as line items change.">1</button>
+                <button class="cs-annotation" style="top: 62%; left: 50%" data-note="Each line item carries its own supplier, cost, and tender price — one proposal can span multiple suppliers.">2</button>
+                <span class="cs-wireframe__caption">Create Tender Proposal</span>
+              </div>
+              <div class="cs-wireframe cs-wireframe--photo">
+                <img src="/src/assets/images/hongda/org-management.png" alt="Organisation management list" />
+                <button class="cs-annotation" style="top: 16%; left: 90%" data-note="Every list module — Organisation, Client, Warehouse, Product — reuses the same table + search + create pattern.">3</button>
+                <span class="cs-wireframe__caption">Organisation management</span>
+              </div>
+              <div class="cs-wireframe cs-wireframe--photo">
+                <img src="/src/assets/images/hongda/permissions.png" alt="Permissions matrix screen" />
+                <button class="cs-annotation" style="top: 20%; left: 70%" data-note="View / Add / Edit / Delete are set per controller, not baked into a fixed role — access can be tuned as the team grows.">4</button>
+                <span class="cs-wireframe__caption">Permissions matrix</span>
+              </div>
+              <div class="cs-wireframe cs-wireframe--photo">
+                <img src="/src/assets/images/hongda/photo-library.png" alt="Photo library screen" />
+                <span class="cs-wireframe__caption">Photo library</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-screens-group" data-reveal>
+            <span class="cs-screens-group__label">Mobile app — field worker</span>
+            <div class="cs-mobile-strip">
+              <div class="cs-wireframe cs-wireframe--photo">
+                <div class="cs-device cs-device--phone">
+                  <div class="cs-device__screen cs-device__screen--photo">
+                    <img src="/src/assets/images/hongda-mobile/splash.png" alt="Mobile app splash screen" />
+                  </div>
+                </div>
+                <span class="cs-wireframe__caption">Splash</span>
+              </div>
+              <div class="cs-wireframe cs-wireframe--photo">
+                <div class="cs-device cs-device--phone">
+                  <div class="cs-device__screen cs-device__screen--photo">
+                    <img src="/src/assets/images/hongda-mobile/tender-list.png" alt="Tender project list on mobile" />
+                  </div>
+                </div>
+                <span class="cs-wireframe__caption">Tender project list</span>
+              </div>
+              <div class="cs-wireframe cs-wireframe--photo">
+                <div class="cs-device cs-device--phone">
+                  <div class="cs-device__screen cs-device__screen--photo">
+                    <img src="/src/assets/images/hongda-mobile/upload-progress.png" alt="Upload progress photos with tags" />
+                  </div>
+                </div>
+                <span class="cs-wireframe__caption">Upload progress + tags</span>
+              </div>
+              <div class="cs-wireframe cs-wireframe--photo">
+                <div class="cs-device cs-device--phone">
+                  <div class="cs-device__screen cs-device__screen--photo">
+                    <img src="/src/assets/images/hongda-mobile/tags-sheet.png" alt="Tags selection bottom sheet" />
+                  </div>
+                </div>
+                <span class="cs-wireframe__caption">Tag picker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGN SYSTEM -->
+      <section class="cs-section" id="design-system">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Design System</p>
+          <h2 class="cs-h2" data-reveal>One brand, one component set, two surfaces.</h2>
+          <p class="cs-body-text cs-body-text--narrow" data-reveal>
+            The same forest-green brand, table/badge/form components, and bilingual (English / 繁體中文) field
+            pattern carry across both the web admin and the mobile app.
+          </p>
+
+          <div class="cs-ds-grid" data-reveal>
+            <div class="cs-ds-block cs-ds-block--colors">
+              <h3>Color</h3>
+              <div class="cs-swatch-row">
+                <span class="cs-swatch" style="background: #1f3d2b"></span>
+                <span class="cs-swatch" style="background: #4c9a5f"></span>
+                <span class="cs-swatch" style="background: #8fc99f"></span>
+                <span class="cs-swatch" style="background: #16a34a"></span>
+                <span class="cs-swatch" style="background: #ef4444"></span>
+                <span class="cs-swatch" style="background: #f59e0b"></span>
+              </div>
+            </div>
+            <div class="cs-ds-block cs-ds-block--type">
+              <h3>Type scale</h3>
+              <p class="cs-type-sample cs-type-sample--h1">Heading</p>
+              <p class="cs-type-sample cs-type-sample--h2">Subheading</p>
+              <p class="cs-type-sample cs-type-sample--body">Body text for table cells and form labels.</p>
+              <p class="cs-type-sample cs-type-sample--caption">EN / 繁體中文</p>
+            </div>
+            <div class="cs-ds-block cs-ds-block--components">
+              <h3>Components</h3>
+              <div class="cs-ds-components">
+                <button class="cs-ds-btn cs-ds-btn--primary">Create</button>
+                <button class="cs-ds-btn cs-ds-btn--secondary">Back</button>
+                <span class="cs-ds-badge cs-ds-badge--success">Success</span>
+                <span class="cs-ds-badge cs-ds-badge--danger">Failed</span>
+                <div class="cs-ds-input">Enter name / 名稱</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY UX DECISIONS -->
+      <section class="cs-section cs-section--muted" id="decisions">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Key UX Decisions</p>
+          <h2 class="cs-h2" data-reveal>Three calls that shaped the product.</h2>
+
+          <div class="cs-decision-grid">
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">01</span>
+              <h3>A dedicated app, not a responsive web view</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>One responsive web app for office and field</div>
+                <div><span>Shipped</span>A separate mobile app with native capture patterns</div>
+              </div>
+              <p>Field work is camera-first and one-handed — a shrunk admin table doesn't fit that. A native action sheet and tag picker do.</p>
+            </div>
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">02</span>
+              <h3>Bilingual fields on every record</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>English-only interface with translation added later</div>
+                <div><span>Shipped</span>English / 繁體中文 tabs built into every form from day one</div>
+              </div>
+              <p>Hong Da's staff and clients work in both languages daily — bilingual couldn't be a bolt-on.</p>
+            </div>
+            <div class="cs-decision-card" data-reveal>
+              <span class="cs-decision-card__num">03</span>
+              <h3>Permission matrix over fixed roles</h3>
+              <div class="cs-decision-card__compare">
+                <div><span>Considered</span>Two or three fixed roles, e.g. Admin / Staff</div>
+                <div><span>Shipped</span>Per-controller View / Add / Edit / Delete permissions</div>
+              </div>
+              <p>Tender and pricing data need finer control than a blanket role as the admin team grows.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS & REFLECTION (merged) -->
+      <section class="cs-section" id="results">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Results &amp; Reflection</p>
+          <h2 class="cs-h2" data-reveal>What shipped.</h2>
+
+          <div class="cs-metrics-grid" data-reveal>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="20" data-suffix="+">0</span>
+              <span class="cs-metric__label">Web admin modules, one shared system</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="2">0</span>
+              <span class="cs-metric__label">Platforms shipped from one design system</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="3">0</span>
+              <span class="cs-metric__label">Tender proposal states, draft to awarded</span>
+            </div>
+            <div class="cs-metric">
+              <span class="cs-metric__num" data-counter="5">0</span>
+              <span class="cs-metric__label">Photos per field upload, tagged on the spot</span>
+            </div>
+          </div>
+
+          <div class="cs-reflection-inline" data-reveal>
+            <p class="cs-reflection-inline__text">
+              The real design problem here wasn't any single screen — it was resisting a one-size-fits-all
+              interface for two very different users. Giving office staff full-featured tables and field workers a
+              three-tap capture flow, from one shared system, is still the trade-off I'd make again first.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section cs-cta">
+        <div class="container cs-cta__inner" data-reveal>
+          <h2 class="cs-h2">Have two user groups fighting over one interface?</h2>
+          <div class="cs-cta__actions">
+            <a href="./index.html#contact" class="btn btn--primary">
+              Let's Connect
+              <img src="/src/assets/icons/connect-arrow.svg" alt="" width="14" height="14" />
+            </a>
+            <a href="./index.html#work" class="btn btn--outline">Back to all projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span class="footer__logo">HAE<span class="accent">.</span></span>
+        <span class="footer__tagline">UI/UX · Business Analysis · AI Workflow</span>
+        <span class="footer__copy">© 2024 Trâm Lê</span>
+      </div>
+    </footer>
+
+    <div class="cs-tooltip" id="cs-tooltip" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/hong-da.js"></script>
+  </body>
+</html>

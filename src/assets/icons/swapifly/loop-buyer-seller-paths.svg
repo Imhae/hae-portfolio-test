@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="676" height="240" viewBox="0 0 676 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Loop / Buyer&#226;&#128;&#147;seller paths" clip-path="url(#clip0_0_5)">
+<path id="Vector" d="M0 24C18 24 20 80 30 80" stroke="#6B3C67" stroke-width="2" stroke-linecap="round"/>
+<path id="Vector_2" d="M0 234C18 234 20 160 30 160" stroke="#6B3C67" stroke-width="2" stroke-linecap="round"/>
+<path id="Vector_3" d="M200 120H236M416 120H446M626 120H656" stroke="#6B3C67" stroke-width="2" stroke-linecap="round"/>
+<path id="Vector_4" d="M35 78L26 72V84L35 78ZM37 161L28 155V167L37 161ZM236 120L227 114V126L236 120ZM446 120L437 114V126L446 120ZM656 120L647 114V126L656 120Z" fill="#FF4B9B"/>
+</g>
+<defs>
+<clipPath id="clip0_0_5">
+<rect width="676" height="240" fill="white"/>
+</clipPath>
+</defs>
+</svg>
