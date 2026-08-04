@@ -127,7 +127,7 @@
 .swap-hero__content {
   position: relative;
   z-index: 1;
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto;
   text-align: center;
 }
