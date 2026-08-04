@@ -63,6 +63,27 @@ if (!prefersReducedMotion) {
       offset: ['start end', 'end start'],
     });
   });
+
+  // Hero mockups: desktop drifts up slowly, mobile drifts up faster for depth.
+  const desktopMock = document.querySelector('[data-parallax-desktop]');
+  const mobileMock = document.querySelector('[data-parallax-mobile]');
+  const isSmallScreen = window.matchMedia('(max-width: 640px)').matches;
+
+  if (heroSection && desktopMock) {
+    const distance = isSmallScreen ? 18 : 40;
+    scroll(animate(desktopMock, { transform: ['translateY(0px)', `translateY(-${distance}px)`] }), {
+      target: heroSection,
+      offset: ['start start', 'end start'],
+    });
+  }
+
+  if (heroSection && mobileMock) {
+    const distance = isSmallScreen ? 32 : 70;
+    scroll(animate(mobileMock, { transform: ['translateY(0px)', `translateY(-${distance}px)`] }), {
+      target: heroSection,
+      offset: ['start start', 'end start'],
+    });
+  }
 }
 
 // --- AI Activity log: staggered entrance when in view ----------------------

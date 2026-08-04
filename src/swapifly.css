@@ -172,12 +172,41 @@
   max-width: 814px;
   margin: 64px auto 0;
   padding: 0 24px;
+  aspect-ratio: 3614 / 3122;
 }
 
-.swap-hero__visual img {
+.swap-hero__mock {
+  position: absolute;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.swap-hero__mock img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.swap-hero__mock--desktop {
+  left: 3.3%;
+  top: 2.7%;
+  width: 80.3%;
+  z-index: 1;
+}
+
+.swap-hero__mock--desktop img {
+  transform: rotate(1.2deg);
+}
+
+.swap-hero__mock--mobile {
+  left: 63%;
+  top: 29.5%;
+  width: 30.5%;
+  z-index: 2;
+}
+
+.swap-hero__mock--mobile img {
+  transform: rotate(10.6deg);
 }
 
 /* 02 · Snapshot ------------------------------------------------------------ */
