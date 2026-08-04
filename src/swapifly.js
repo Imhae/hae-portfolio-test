@@ -93,9 +93,9 @@ if (aiLogItems.length) {
 // transition-delay (via the --loop-step custom property) and the left-to-
 // right reveal order: seller/buyer labels -> list/browse cards -> curved
 // connectors -> core -> offer (+ its connector) -> negotiate (+ connector)
-// -> close & rate (+ connector). Connector lines are drawn progressively
-// with stroke-dasharray/stroke-dashoffset, measured at runtime so the draw
-// length always matches the actual rendered path.
+// -> close & rate (+ connector). Connector lines use a dashed stroke with a
+// continuous CSS animation (conveyor-belt effect), independent of this
+// entrance reveal.
 // ---------------------------------------------------------------------------
 const loopDiagram = document.getElementById('loop-diagram');
 
@@ -103,12 +103,6 @@ if (loopDiagram) {
   const loopNodes = loopDiagram.querySelectorAll('[data-loop-node]');
   loopNodes.forEach((el) => {
     el.style.setProperty('--loop-step', el.dataset.loopStep || '0');
-  });
-
-  const connectorLines = loopDiagram.querySelectorAll('.swap-loop__connector-line');
-  connectorLines.forEach((line) => {
-    const length = Math.ceil(line.getTotalLength());
-    line.style.setProperty('--line-length', length);
   });
 
   if (prefersReducedMotion) {
