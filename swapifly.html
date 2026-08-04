@@ -77,44 +77,93 @@
       </section>
 
       <!-- 03 · MARKETPLACE LOOP -->
-      <section class="swap-section swap-section--dark" id="ecosystem">
-        <div class="container swap-loop">
+      <section class="swap-section swap-section--dark swap-section--ecosystem" id="ecosystem">
+        <div class="container">
           <div class="swap-loop__intro" data-reveal>
             <p class="eyebrow swap-eyebrow--pink">Product Ecosystem</p>
-            <h2 class="swap-h2">Two sides. One shared transaction journey.</h2>
-            <p class="swap-lead">
+            <h2 class="swap-h2 swap-loop__heading">Two sides. One shared transaction journey.</h2>
+            <p class="swap-lead swap-loop__lead">
               Sellers create supply. Buyers signal demand. Swapifly connects both sides from listing to
               agreement—and builds trust beyond the transaction.
             </p>
           </div>
-          <div class="swap-loop__diagram" data-reveal>
-            <div class="swap-loop__core" aria-hidden="true">
-              <img src="/src/assets/icons/swapifly/loop-core.svg" alt="" width="170" height="170" />
-              <img src="/src/assets/icons/swapifly/loop-buyer-seller-paths.svg" alt="" class="swap-loop__paths" width="676" height="240" />
-              <span class="swap-loop__core-label">THE LISTING<br />IS THE MEETING POINT</span>
-            </div>
-            <div class="swap-loop__steps">
-              <div class="swap-loop__step">
-                <span class="swap-loop__tag">SELLER · Creates supply</span>
-                <span class="swap-loop__num">01&nbsp; LIST</span>
-                <p>Seller creates a listing</p>
-              </div>
-              <div class="swap-loop__step">
-                <span class="swap-loop__tag">BUYER · Creates demand</span>
-                <span class="swap-loop__num">02&nbsp; BROWSE</span>
-                <p>Buyer finds a product</p>
-              </div>
-              <div class="swap-loop__step">
-                <span class="swap-loop__num">03&nbsp; OFFER</span>
-                <p>Buyer proposes a price</p>
-              </div>
-              <div class="swap-loop__step swap-loop__step--accent">
-                <span class="swap-loop__num">04&nbsp; NEGOTIATE</span>
-                <p>Both sides agree on price and terms</p>
-              </div>
-              <div class="swap-loop__step">
-                <span class="swap-loop__num">05&nbsp; CLOSE &amp; RATE</span>
-                <p>Complete the deal, build trust, and return</p>
+
+          <div class="swap-loop" id="loop-diagram">
+            <div class="swap-loop__wrap">
+              <div class="swap-loop__stage">
+                <!-- External lanes -->
+                <div class="swap-loop__lane swap-loop__lane--seller" data-loop-node data-loop-step="0">
+                  <span class="swap-loop__lane-title">SELLER</span>
+                  <span class="swap-loop__lane-sub">Creates supply</span>
+                </div>
+                <div class="swap-loop__lane swap-loop__lane--buyer" data-loop-node data-loop-step="0">
+                  <span class="swap-loop__lane-title">BUYER</span>
+                  <span class="swap-loop__lane-sub">Creates demand</span>
+                </div>
+
+                <!-- List / Browse cards -->
+                <div class="swap-loop__card swap-loop__card--list" data-loop-node data-loop-step="1">
+                  <span class="swap-loop__card-num">01&nbsp; LIST</span>
+                  <p>Seller creates a listing</p>
+                </div>
+                <div class="swap-loop__card swap-loop__card--browse" data-loop-node data-loop-step="1">
+                  <span class="swap-loop__card-num">02&nbsp; BROWSE</span>
+                  <p>Buyer finds a product</p>
+                </div>
+
+                <!-- Curved connectors: List → Core, Browse → Core -->
+                <svg class="swap-loop__connector swap-loop__connector--list-core" data-loop-node data-loop-step="2" viewBox="0 0 36 61" fill="none" aria-hidden="true">
+                  <path class="swap-loop__connector-line" d="M1 1C19 1 5 54 30.5 55" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+                  <path class="swap-loop__connector-head" d="M27 49L36 55L27 61V49Z" fill="#FF4B9B" />
+                </svg>
+                <svg class="swap-loop__connector swap-loop__connector--browse-core" data-loop-node data-loop-step="2" viewBox="0 0 36 61" fill="none" aria-hidden="true">
+                  <path class="swap-loop__connector-line" d="M1 60C19 60 5 7 30.5 6" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+                  <path class="swap-loop__connector-head" d="M27 12L36 6L27 0V12Z" fill="#FF4B9B" />
+                </svg>
+
+                <!-- Core -->
+                <div class="swap-loop__core" data-loop-node data-loop-step="3">
+                  <svg viewBox="0 0 170 170" width="170" height="170" aria-hidden="true">
+                    <circle cx="85" cy="85" r="84.5" fill="url(#loopCoreGradient)" stroke="#A94B82" />
+                    <defs>
+                      <radialGradient id="loopCoreGradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(85 85) scale(85)">
+                        <stop stop-color="#FF0073" stop-opacity="0.55" />
+                        <stop offset="1" stop-color="#30082E" />
+                      </radialGradient>
+                    </defs>
+                  </svg>
+                  <span class="swap-loop__core-label">THE LISTING<br />IS THE MEETING POINT</span>
+                </div>
+
+                <!-- Core → Offer -->
+                <svg class="swap-loop__connector swap-loop__connector--core-offer" data-loop-node data-loop-step="4" viewBox="0 0 36 12" fill="none" aria-hidden="true">
+                  <path class="swap-loop__connector-line" d="M1 6H35" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+                  <path class="swap-loop__connector-head" d="M27 0L36 6L27 12V0Z" fill="#FF4B9B" />
+                </svg>
+                <div class="swap-loop__card swap-loop__card--flow swap-loop__card--offer" data-loop-node data-loop-step="4">
+                  <span class="swap-loop__card-num">03&nbsp; OFFER</span>
+                  <p>Buyer proposes a price</p>
+                </div>
+
+                <!-- Offer → Negotiate -->
+                <svg class="swap-loop__connector swap-loop__connector--offer-negotiate" data-loop-node data-loop-step="5" viewBox="0 0 30 12" fill="none" aria-hidden="true">
+                  <path class="swap-loop__connector-line" d="M1 6H29" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+                  <path class="swap-loop__connector-head" d="M21 0L30 6L21 12V0Z" fill="#FF4B9B" />
+                </svg>
+                <div class="swap-loop__card swap-loop__card--flow swap-loop__card--negotiate swap-loop__card--accent" data-loop-node data-loop-step="5">
+                  <span class="swap-loop__card-num">04&nbsp; NEGOTIATE</span>
+                  <p>Both sides agree on price and terms</p>
+                </div>
+
+                <!-- Negotiate → Close & Rate -->
+                <svg class="swap-loop__connector swap-loop__connector--negotiate-trust" data-loop-node data-loop-step="6" viewBox="0 0 30 12" fill="none" aria-hidden="true">
+                  <path class="swap-loop__connector-line" d="M1 6H29" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+                  <path class="swap-loop__connector-head" d="M21 0L30 6L21 12V0Z" fill="#FF4B9B" />
+                </svg>
+                <div class="swap-loop__card swap-loop__card--flow swap-loop__card--trust" data-loop-node data-loop-step="6">
+                  <span class="swap-loop__card-num">05&nbsp; CLOSE &amp; RATE</span>
+                  <p>Complete the deal, build trust, and return</p>
+                </div>
               </div>
             </div>
           </div>

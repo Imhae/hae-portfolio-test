@@ -219,16 +219,162 @@
 }
 
 /* 03 · Marketplace loop ---------------------------------------------------- */
-.swap-loop__diagram {
-  margin-top: 56px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
+
+/* Intro: this section's heading/lead run wider than the shared .swap-h2 /
+   .swap-lead defaults (Figma: 1050px / 900px, single-line heading) so they
+   get section-scoped overrides rather than changing the shared classes. */
+.swap-loop__heading {
+  font-size: 52px;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  max-width: 1050px;
+  white-space: nowrap;
 }
 
-.swap-loop__core {
+.swap-loop__lead {
+  max-width: 900px;
+  margin-top: 12px;
+}
+
+.swap-loop {
+  margin-top: 122px;
+}
+
+.swap-section--ecosystem {
+  padding-bottom: 180px;
+}
+
+/* .container's max-width already includes its 24px side padding
+   (border-box), so its content box is only 1104px — 48px short of the
+   1152px-wide canvas the Figma coordinates above are authored against.
+   Widen just this section's container so the content box lines up
+   exactly with those pixel positions. */
+.swap-section--ecosystem .container {
+  max-width: calc(var(--max-width) + 48px);
+}
+
+/* Horizontal scroll shell: keeps the exact desktop diagram intact and lets
+   it scroll at widths that can't fit 1152px, instead of redesigning it. */
+.swap-loop__wrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Pixel-accurate stage: coordinates below are lifted directly from the
+   Figma frame (03 · Marketplace loop, node 333:246), local to this
+   1152×276 canvas — every node position matches the design 1:1. */
+.swap-loop__stage {
   position: relative;
+  width: 1152px;
+  height: 276px;
+  min-width: 1152px;
+}
+
+.swap-loop__lane {
+  position: absolute;
+  left: 0;
+  width: 95px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.swap-loop__lane--seller {
+  top: 18px;
+}
+
+.swap-loop__lane--buyer {
+  top: 196px;
+}
+
+.swap-loop__lane-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  color: var(--swap-magenta);
+  line-height: 20px;
+}
+
+.swap-loop__lane-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  color: var(--swap-magenta);
+  line-height: 20px;
+}
+
+.swap-loop__card {
+  position: absolute;
+  background: #0c0a10;
+  border: 1px solid #342536;
+  border-radius: 12px;
+  padding: 16px 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+}
+
+.swap-loop__card--list,
+.swap-loop__card--browse {
+  left: 122px;
+  width: 194px;
+  height: 85px;
+}
+
+.swap-loop__card--list {
+  top: 0;
+}
+
+.swap-loop__card--browse {
+  top: 174px;
+}
+
+.swap-loop__card--flow {
+  width: 180px;
+  height: 97px;
+  top: 90px;
+}
+
+.swap-loop__card--offer {
+  left: 552px;
+}
+
+.swap-loop__card--negotiate {
+  left: 762px;
+}
+
+.swap-loop__card--trust {
+  left: 972px;
+}
+
+.swap-loop__card--accent {
+  background: #2b1230;
+  border-color: #b04d87;
+}
+
+.swap-loop__card-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  color: var(--swap-magenta);
+  line-height: 18px;
+}
+
+.swap-loop__card p {
+  font-size: 14px;
+  line-height: 20px;
+  color: #aaa3b2;
+  margin: 0;
+}
+
+/* Core node */
+.swap-loop__core {
+  position: absolute;
+  left: 346px;
+  top: 42px;
   width: 170px;
   height: 170px;
   display: flex;
@@ -236,80 +382,108 @@
   justify-content: center;
 }
 
-.swap-loop__core img:first-child {
-  width: 100%;
-  height: 100%;
-}
-
-.swap-loop__paths {
+.swap-loop__core svg {
   position: absolute;
-  width: 340px;
-  max-width: none;
-  height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: -1;
+  inset: 0;
+  filter: drop-shadow(0 0 40px rgba(255, 0, 115, 0.35));
 }
 
 .swap-loop__core-label {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  z-index: 1;
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
   color: #fff2fa;
 }
 
-.swap-loop__steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-  width: 100%;
+/* Connectors — straight (Core→Offer, Offer→Negotiate, Negotiate→Trust) */
+.swap-loop__connector {
+  position: absolute;
+  overflow: visible;
 }
 
-.swap-loop__step {
-  background: #0c0a10;
-  border: 1px solid #342536;
-  border-radius: 12px;
-  padding: 16px 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.swap-loop__connector--core-offer {
+  left: 516px;
+  top: 132px;
+  width: 36px;
+  height: 12px;
 }
 
-.swap-loop__step--accent {
-  background: #2b1230;
-  border-color: #b04d87;
+.swap-loop__connector--offer-negotiate {
+  left: 732px;
+  top: 132px;
+  width: 30px;
+  height: 12px;
 }
 
-.swap-loop__tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: var(--swap-magenta);
-  margin-bottom: 4px;
+.swap-loop__connector--negotiate-trust {
+  left: 942px;
+  top: 132px;
+  width: 30px;
+  height: 12px;
 }
 
-.swap-loop__num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.4px;
-  color: var(--swap-magenta);
+/* Connectors — curved (List→Core, Browse→Core).
+   Browse→Core is authored as its own path (a vertical mirror of the
+   List→Core curve) rather than a CSS transform on the shared path — a
+   rotate+scaleX transform was landing the arrowhead outside the circle. */
+.swap-loop__connector--list-core,
+.swap-loop__connector--browse-core {
+  left: 316px;
+  width: 36px;
+  height: 61px;
 }
 
-.swap-loop__step p {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: #aaa3b2;
-  margin: 2px 0 0;
+.swap-loop__connector--list-core {
+  top: 42px;
+}
+
+.swap-loop__connector--browse-core {
+  top: 151px;
+}
+
+.swap-loop__connector-head {
+  transition: opacity 0.25s ease;
+  opacity: 0;
+}
+
+/* Scroll-triggered entrance animation ------------------------------------- */
+.swap-loop[data-loop-node],
+.swap-loop [data-loop-node] {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--loop-step, 0) * 120ms);
+}
+
+.swap-loop__connector[data-loop-node] {
+  transform: none;
+  transition: opacity 0.3s ease;
+  transition-delay: calc(var(--loop-step, 0) * 120ms);
+}
+
+.swap-loop__connector-line {
+  stroke-dasharray: var(--line-length, 100);
+  stroke-dashoffset: var(--line-length, 100);
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--loop-step, 0) * 120ms);
+}
+
+.swap-loop.is-active [data-loop-node] {
+  opacity: 1;
+  transform: none;
+}
+
+.swap-loop.is-active .swap-loop__connector-line {
+  stroke-dashoffset: 0;
+}
+
+.swap-loop.is-active .swap-loop__connector-head {
+  opacity: 1;
+  transition-delay: calc(var(--loop-step, 0) * 120ms + 0.5s);
 }
 
 /* 04 · Listing flow demo ---------------------------------------------------- */
@@ -1315,8 +1489,14 @@
     grid-column: auto;
   }
 
-  .swap-loop__paths {
-    display: none;
+  .swap-loop__heading {
+    font-size: 34px;
+    white-space: normal;
+    max-width: 100%;
+  }
+
+  .swap-loop__lead {
+    max-width: 100%;
   }
 
   .swap-ai-visuals__img {
@@ -1355,8 +1535,89 @@
     height: 563px;
   }
 
-  .swap-loop__steps {
-    grid-template-columns: 1fr 1fr;
+  .swap-loop {
+    margin-top: 40px;
+  }
+
+  .swap-loop__heading {
+    font-size: 28px;
+    letter-spacing: -0.4px;
+  }
+
+  .swap-loop__wrap {
+    overflow: visible;
+  }
+
+  .swap-loop__stage {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: auto;
+    min-width: 0;
+    height: auto;
+  }
+
+  .swap-loop__lane,
+  .swap-loop__card,
+  .swap-loop__core {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+  }
+
+  .swap-loop__card--flow {
+    height: auto;
+  }
+
+  .swap-loop__connector {
+    display: none;
+  }
+
+  .swap-loop__lane {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .swap-loop__core {
+    width: 140px;
+    height: 140px;
+    margin: 4px auto;
+  }
+
+  .swap-loop__lane--seller {
+    order: 1;
+  }
+
+  .swap-loop__card--list {
+    order: 2;
+  }
+
+  .swap-loop__lane--buyer {
+    order: 3;
+  }
+
+  .swap-loop__card--browse {
+    order: 4;
+  }
+
+  .swap-loop__core {
+    order: 5;
+  }
+
+  .swap-loop__card--offer {
+    order: 6;
+  }
+
+  .swap-loop__card--negotiate {
+    order: 7;
+  }
+
+  .swap-loop__card--trust {
+    order: 8;
   }
 
   .swap-ribbon {
@@ -1404,5 +1665,15 @@
 
   .swap-scene {
     transition: none;
+  }
+
+  .swap-loop [data-loop-node],
+  .swap-loop__connector-line,
+  .swap-loop__connector-head {
+    transition: none !important;
+    transition-delay: 0s !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
   }
 }

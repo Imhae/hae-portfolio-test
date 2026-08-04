@@ -87,6 +87,51 @@ if (aiLogItems.length) {
 }
 
 // ---------------------------------------------------------------------------
+// Product Ecosystem: transaction diagram entrance
+//
+// Nodes carry a `data-loop-step` index (0–6) that drives both the CSS
+// transition-delay (via the --loop-step custom property) and the left-to-
+// right reveal order: seller/buyer labels -> list/browse cards -> curved
+// connectors -> core -> offer (+ its connector) -> negotiate (+ connector)
+// -> close & rate (+ connector). Connector lines are drawn progressively
+// with stroke-dasharray/stroke-dashoffset, measured at runtime so the draw
+// length always matches the actual rendered path.
+// ---------------------------------------------------------------------------
+const loopDiagram = document.getElementById('loop-diagram');
+
+if (loopDiagram) {
+  const loopNodes = loopDiagram.querySelectorAll('[data-loop-node]');
+  loopNodes.forEach((el) => {
+    el.style.setProperty('--loop-step', el.dataset.loopStep || '0');
+  });
+
+  const connectorLines = loopDiagram.querySelectorAll('.swap-loop__connector-line');
+  connectorLines.forEach((line) => {
+    const length = Math.ceil(line.getTotalLength());
+    line.style.setProperty('--line-length', length);
+  });
+
+  if (prefersReducedMotion) {
+    loopDiagram.classList.add('is-active');
+  } else if ('IntersectionObserver' in window) {
+    const loopObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loopDiagram.classList.add('is-active');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    loopObserver.observe(loopDiagram);
+  } else {
+    loopDiagram.classList.add('is-active');
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Interactive "AI-assisted listing flow" demo
 //
 // Recreated from Figma's "Interaction video / AI-assisted listing flow"
