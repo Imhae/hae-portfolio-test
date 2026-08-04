@@ -1564,80 +1564,19 @@
     letter-spacing: -0.4px;
   }
 
+  /* Scaled adaptation of the exact desktop diagram — same absolute-positioned
+     stage, connectors, and card hierarchy, just shrunk to fit the viewport
+     instead of being rebuilt as a vertical list. --loop-scale is computed at
+     runtime (see swapifly.js) from the wrap's available width. */
   .swap-loop__wrap {
-    overflow: visible;
+    overflow: hidden;
+    width: 100%;
+    height: calc(276px * var(--loop-scale, 1));
   }
 
   .swap-loop__stage {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    width: auto;
-    min-width: 0;
-    height: auto;
-  }
-
-  .swap-loop__lane,
-  .swap-loop__card,
-  .swap-loop__core {
-    position: static;
-    left: auto;
-    top: auto;
-    width: 100%;
-  }
-
-  .swap-loop__card--flow {
-    height: auto;
-  }
-
-  .swap-loop__connector {
-    display: none;
-  }
-
-  .swap-loop__lane {
-    flex-direction: row;
-    align-items: baseline;
-    gap: 6px;
-  }
-
-  .swap-loop__core {
-    width: 140px;
-    height: 140px;
-    margin: 4px auto;
-  }
-
-  .swap-loop__lane--seller {
-    order: 1;
-  }
-
-  .swap-loop__card--list {
-    order: 2;
-  }
-
-  .swap-loop__lane--buyer {
-    order: 3;
-  }
-
-  .swap-loop__card--browse {
-    order: 4;
-  }
-
-  .swap-loop__core {
-    order: 5;
-  }
-
-  .swap-loop__card--offer {
-    order: 6;
-  }
-
-  .swap-loop__card--negotiate {
-    order: 7;
-  }
-
-  .swap-loop__card--trust {
-    order: 8;
+    transform: scale(var(--loop-scale, 1));
+    transform-origin: top left;
   }
 
   .swap-ribbon {

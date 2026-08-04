@@ -144,6 +144,27 @@ if (loopDiagram) {
   } else {
     loopDiagram.classList.add('is-active');
   }
+
+  // Mobile (<=640px): scale the exact desktop stage down to fit the
+  // viewport instead of rebuilding it as a stacked list. --loop-scale
+  // drives both the stage's transform:scale() and the wrap's reserved
+  // height (see the max-width:640px block in swapifly.css).
+  const loopWrap = loopDiagram.querySelector('.swap-loop__wrap');
+  const loopStage = loopDiagram.querySelector('.swap-loop__stage');
+  const LOOP_STAGE_WIDTH = 1152;
+
+  if (loopWrap && loopStage) {
+    const updateLoopScale = () => {
+      if (window.innerWidth > 640) {
+        loopWrap.style.removeProperty('--loop-scale');
+        return;
+      }
+      const scale = Math.min(1, loopWrap.clientWidth / LOOP_STAGE_WIDTH);
+      loopWrap.style.setProperty('--loop-scale', scale.toFixed(4));
+    };
+    updateLoopScale();
+    window.addEventListener('resize', updateLoopScale);
+  }
 }
 
 // ---------------------------------------------------------------------------
