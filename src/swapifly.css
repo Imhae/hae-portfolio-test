@@ -1583,16 +1583,28 @@
     min-height: 108px;
   }
 
+  /* Fixed 1:1 box (viewBox matches width/height exactly) so the curve
+     shape never stretches/distorts the way a percentage-width svg would.
+     Centered via margin auto; the -10px bottom margin deliberately overlaps
+     the core by 10px — that overlapped tail is hidden behind the circle
+     (see z-index below) so the visible line always reads as ending exactly
+     on the rim, regardless of small width changes between 390–768px. */
   .swap-loop-m__curves {
+    position: relative;
+    z-index: 1;
     display: block;
-    width: 100%;
-    height: 44px;
-    margin-top: -6px;
+    width: 220px;
+    height: 76px;
+    margin: -6px auto -10px;
     overflow: visible;
   }
 
+  /* Core sits above the curves and the vertical flow line (z-index) so any
+     connector overlap is covered by its own opaque fill/rim instead of
+     showing through. */
   .swap-loop-m__core {
     position: relative;
+    z-index: 3;
     left: auto;
     top: auto;
     width: 148px;
@@ -1600,13 +1612,28 @@
     margin: 0 auto;
   }
 
+  /* The core's svg carries desktop's fixed width/height="170" attributes;
+     without this the browser honors those over the shrunk 148px box
+     (position:absolute + inset:0 does NOT override an explicit replaced-
+     element size), leaving an oversized circle anchored top-left instead of
+     filling — and centered on — its container. */
+  .swap-loop-m__core svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Overlaps the core by 10px (margin-top) — hidden behind it via z-index,
+     same trick as the curves above — so the dashed line reads as starting
+     exactly at the circle's bottom edge. padding-top is the visible dash
+     length from that edge down to the Offer card. */
   .swap-loop-m__flow {
     position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 28px;
-    margin-top: 8px;
-    padding-top: 28px;
+    margin-top: -10px;
+    padding-top: 24px;
   }
 
   .swap-loop-m__line {

@@ -198,10 +198,15 @@
                 </div>
               </div>
 
-              <!-- Curved connectors: List -> Core, Browse -> Core -->
-              <svg class="swap-loop-m__curves" data-loop-m-node data-loop-m-step="1" viewBox="0 0 300 64" fill="none" preserveAspectRatio="none" aria-hidden="true">
-                <path class="swap-loop__connector-line" d="M64 1C64 34 128 30 142 62" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
-                <path class="swap-loop__connector-line" d="M236 1C236 34 172 30 158 62" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+              <!-- Curved connectors: List -> Core, Browse -> Core. Fixed 1:1
+                   viewBox (no stretch/distortion); endpoints deliberately
+                   run a few px past the circle's rim and get hidden behind
+                   it via z-index (see the max-width:768px block in
+                   swapifly.css), so they read as terminating cleanly at the
+                   border regardless of minor width changes. -->
+              <svg class="swap-loop-m__curves" data-loop-m-node data-loop-m-step="1" viewBox="0 0 220 76" width="220" height="76" fill="none" aria-hidden="true">
+                <path class="swap-loop__connector-line" d="M28 1C28 32 68 30 76 74" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+                <path class="swap-loop__connector-line" d="M192 1C192 32 152 30 144 74" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
               </svg>
 
               <div class="swap-loop__core swap-loop-m__core" data-loop-m-node data-loop-m-step="2">
