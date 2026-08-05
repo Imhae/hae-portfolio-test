@@ -474,6 +474,12 @@
   top: 151px;
 }
 
+/* Mobile vertical journey — hidden above 768px (see the max-width:768px
+   block below for the full layout). */
+.swap-loop__mobile {
+  display: none;
+}
+
 /* Scroll-triggered entrance animation ------------------------------------- */
 .swap-loop[data-loop-node],
 .swap-loop [data-loop-node] {
@@ -1528,6 +1534,129 @@
   }
 }
 
+/* Product Ecosystem — mobile vertical journey (<=768px) ---------------------
+   Desktop's absolute-positioned horizontal stage doesn't reflow, so mobile
+   gets its own markup (.swap-loop__mobile, a sibling of .swap-loop__wrap in
+   the HTML) rebuilt top-to-bottom: labels -> List/Browse columns -> curved
+   connectors into the core -> core -> Offer/Negotiate/Close & Rate stacked
+   full-width behind one shared vertical dashed line. Desktop stays untouched
+   above 768px; the tablet horizontal-scroll wrap (769–1024px) is untouched
+   too. Reveal is driven by swapifly.js toggling `.is-in` per [data-loop-m-node]
+   as it individually scrolls into view. */
+@media (max-width: 768px) {
+  .swap-loop {
+    margin-top: 40px;
+  }
+
+  .swap-loop__wrap {
+    display: none;
+  }
+
+  .swap-loop__mobile {
+    display: block;
+  }
+
+  .swap-loop-m__labels {
+    display: flex;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .swap-loop-m__label-col {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .swap-loop-m__pair {
+    position: relative;
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .swap-loop-m__pair .swap-loop-m__card {
+    position: relative;
+    flex: 1 1 0;
+    width: auto;
+    min-height: 108px;
+  }
+
+  .swap-loop-m__curves {
+    display: block;
+    width: 100%;
+    height: 44px;
+    margin-top: -6px;
+    overflow: visible;
+  }
+
+  .swap-loop-m__core {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 148px;
+    height: 148px;
+    margin: 0 auto;
+  }
+
+  .swap-loop-m__flow {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 8px;
+    padding-top: 28px;
+  }
+
+  .swap-loop-m__line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-left: 2px dashed #6b3c67;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 0;
+  }
+
+  .swap-loop-m__card--full {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  /* Reveal: cards/labels fade up, connectors fade in, the vertical line
+     grows downward — each independently as it enters the viewport. */
+  .swap-loop__mobile [data-loop-m-node] {
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .swap-loop-m__card[data-loop-m-node] {
+    transform: translateY(20px);
+  }
+
+  .swap-loop-m__curves[data-loop-m-node] {
+    transform: none;
+  }
+
+  .swap-loop-m__line[data-loop-m-node] {
+    transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .swap-loop__mobile [data-loop-m-node].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .swap-loop-m__line[data-loop-m-node].is-in {
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
 @media (max-width: 640px) {
   .swap-hero {
     padding: 128px 0 72px;
@@ -1555,28 +1684,9 @@
     height: 563px;
   }
 
-  .swap-loop {
-    margin-top: 40px;
-  }
-
   .swap-loop__heading {
     font-size: 28px;
     letter-spacing: -0.4px;
-  }
-
-  /* Scaled adaptation of the exact desktop diagram — same absolute-positioned
-     stage, connectors, and card hierarchy, just shrunk to fit the viewport
-     instead of being rebuilt as a vertical list. --loop-scale is computed at
-     runtime (see swapifly.js) from the wrap's available width. */
-  .swap-loop__wrap {
-    overflow: hidden;
-    width: 100%;
-    height: calc(276px * var(--loop-scale, 1));
-  }
-
-  .swap-loop__stage {
-    transform: scale(var(--loop-scale, 1));
-    transform-origin: top left;
   }
 
   .swap-ribbon {
@@ -1634,5 +1744,15 @@
     transform: none !important;
     stroke-dashoffset: 0 !important;
     animation: none !important;
+  }
+
+  .swap-loop__mobile [data-loop-m-node] {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .swap-loop-m__line[data-loop-m-node] {
+    transform: translateX(-50%) !important;
   }
 }

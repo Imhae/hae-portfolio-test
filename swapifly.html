@@ -170,6 +170,69 @@
                 </div>
               </div>
             </div>
+
+            <!-- Mobile (<=768px) vertical journey: same content, rebuilt as a
+                 top-to-bottom layout instead of the desktop's absolute-positioned
+                 horizontal stage. Hidden above 768px; see the max-width:768px
+                 block in swapifly.css. -->
+            <div class="swap-loop__mobile">
+              <div class="swap-loop-m__labels">
+                <div class="swap-loop-m__label-col">
+                  <span class="swap-loop__lane-title">SELLER</span>
+                  <span class="swap-loop__lane-sub">Creates supply</span>
+                </div>
+                <div class="swap-loop-m__label-col">
+                  <span class="swap-loop__lane-title">BUYER</span>
+                  <span class="swap-loop__lane-sub">Creates demand</span>
+                </div>
+              </div>
+
+              <div class="swap-loop-m__pair">
+                <div class="swap-loop__card swap-loop-m__card" data-loop-m-node data-loop-m-step="0">
+                  <span class="swap-loop__card-num">01&nbsp; LIST</span>
+                  <p>Seller creates a listing</p>
+                </div>
+                <div class="swap-loop__card swap-loop-m__card" data-loop-m-node data-loop-m-step="0">
+                  <span class="swap-loop__card-num">02&nbsp; BROWSE</span>
+                  <p>Buyer finds a product</p>
+                </div>
+              </div>
+
+              <!-- Curved connectors: List -> Core, Browse -> Core -->
+              <svg class="swap-loop-m__curves" data-loop-m-node data-loop-m-step="1" viewBox="0 0 300 64" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <path class="swap-loop__connector-line" d="M64 1C64 34 128 30 142 62" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+                <path class="swap-loop__connector-line" d="M236 1C236 34 172 30 158 62" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+              </svg>
+
+              <div class="swap-loop__core swap-loop-m__core" data-loop-m-node data-loop-m-step="2">
+                <svg viewBox="0 0 170 170" width="170" height="170" aria-hidden="true">
+                  <circle cx="85" cy="85" r="84.5" fill="url(#loopCoreGradientMobile)" stroke="#A94B82" />
+                  <defs>
+                    <radialGradient id="loopCoreGradientMobile" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(85 85) scale(85)">
+                      <stop stop-color="#FF0073" stop-opacity="0.55" />
+                      <stop offset="1" stop-color="#30082E" />
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <span class="swap-loop__core-label">THE LISTING<br />IS THE MEETING POINT</span>
+              </div>
+
+              <div class="swap-loop-m__flow">
+                <span class="swap-loop-m__line" data-loop-m-node data-loop-m-step="3" aria-hidden="true"></span>
+                <div class="swap-loop__card swap-loop-m__card swap-loop-m__card--full" data-loop-m-node data-loop-m-step="3">
+                  <span class="swap-loop__card-num">03&nbsp; OFFER</span>
+                  <p>Buyer proposes a price</p>
+                </div>
+                <div class="swap-loop__card swap-loop-m__card swap-loop-m__card--full swap-loop__card--accent" data-loop-m-node data-loop-m-step="4">
+                  <span class="swap-loop__card-num">04&nbsp; NEGOTIATE</span>
+                  <p>Both sides agree on price and terms</p>
+                </div>
+                <div class="swap-loop__card swap-loop-m__card swap-loop-m__card--full" data-loop-m-node data-loop-m-step="5">
+                  <span class="swap-loop__card-num">05&nbsp; CLOSE &amp; RATE</span>
+                  <p>Complete the deal, build trust, and return</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
