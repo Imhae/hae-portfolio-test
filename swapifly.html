@@ -251,17 +251,83 @@
       </section>
 
       <!-- 04 · CORE FLOW 01 · LISTING (interactive demo) -->
-      <section class="swap-section swap-section--light" id="listing-flow">
+      <section class="swap-section swap-section--light swap-section--listing" id="listing-flow">
         <div class="container">
           <p class="eyebrow swap-eyebrow--pink" data-reveal>Core Flow 01 · Listing a Product</p>
-          <h2 class="swap-h2 swap-h2--dark" data-reveal>From one photo to a listing ready to publish.</h2>
-          <p class="swap-lead swap-lead--dark" data-reveal>
+          <h2 class="swap-h2 swap-h2--dark swap-listing__heading" data-reveal>From one photo to a listing ready to publish.</h2>
+          <p class="swap-lead swap-lead--dark swap-listing__lead" data-reveal>
             The interaction demo shows how AI reduces manual input, while every suggestion remains reviewable and
             editable before publishing.
           </p>
-          <div class="swap-ribbon" data-reveal>PHOTO&nbsp; →&nbsp; AI DRAFT&nbsp; →&nbsp; REVIEW&nbsp; →&nbsp; PUBLISH</div>
+          <div class="swap-ribbon swap-listing__ribbon" data-reveal>PHOTO&nbsp; →&nbsp; AI DRAFT&nbsp; →&nbsp; REVIEW&nbsp; →&nbsp; PUBLISH</div>
 
           <div class="swap-demo" data-reveal>
+            <!-- Left column: 4-step vertical timeline (Figma "Listing / Visual
+                 timeline", node 333:625) — desktop/tablet only, see
+                 swap-section--listing rules in swapifly.css. Collapses back
+                 to the section's default flow above that breakpoint. -->
+            <div class="swap-demo__timeline">
+              <span class="swap-demo__connector" style="top: 62px"></span>
+              <span class="swap-demo__connector" style="top: 222px"></span>
+              <span class="swap-demo__connector" style="top: 382px"></span>
+
+              <div class="swap-demo__step">
+                <div class="swap-demo__marker">
+                  <img class="swap-demo__marker-bg" src="/src/assets/icons/swapifly/timeline-step-marker-bg.svg" alt="" width="94" height="94" />
+                  <span class="swap-demo__marker-num">01</span>
+                </div>
+                <div class="swap-demo__step-content">
+                  <div class="swap-demo__step-icon"><img src="/src/assets/icons/swapifly/timeline-icon-image-first.svg" alt="" width="30" height="30" /></div>
+                  <div class="swap-demo__step-text">
+                    <strong>Image-first</strong>
+                    <p>Start with a familiar action: photograph the item.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swap-demo__step">
+                <div class="swap-demo__marker">
+                  <img class="swap-demo__marker-bg" src="/src/assets/icons/swapifly/timeline-step-marker-bg.svg" alt="" width="94" height="94" />
+                  <span class="swap-demo__marker-num">02</span>
+                </div>
+                <div class="swap-demo__step-content">
+                  <div class="swap-demo__step-icon"><img src="/src/assets/icons/swapifly/timeline-icon-ai-draft.svg" alt="" width="23" height="26" /></div>
+                  <div class="swap-demo__step-text">
+                    <strong>AI creates a draft</strong>
+                    <p>Suggests fields from the image data.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swap-demo__step">
+                <div class="swap-demo__marker">
+                  <img class="swap-demo__marker-bg" src="/src/assets/icons/swapifly/timeline-step-marker-bg.svg" alt="" width="94" height="94" />
+                  <span class="swap-demo__marker-num">03</span>
+                </div>
+                <div class="swap-demo__step-content">
+                  <div class="swap-demo__step-icon"><img src="/src/assets/icons/swapifly/timeline-icon-quick-review.svg" alt="" width="24" height="24" /></div>
+                  <div class="swap-demo__step-text">
+                    <strong>Quick review</strong>
+                    <p>Edit individual fields instead of starting over.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swap-demo__step">
+                <div class="swap-demo__marker">
+                  <img class="swap-demo__marker-bg" src="/src/assets/icons/swapifly/timeline-step-marker-bg.svg" alt="" width="94" height="94" />
+                  <span class="swap-demo__marker-num">04</span>
+                </div>
+                <div class="swap-demo__step-content">
+                  <div class="swap-demo__step-icon"><img src="/src/assets/icons/swapifly/timeline-icon-seller-confirms.svg" alt="" width="30" height="30" /></div>
+                  <div class="swap-demo__step-text">
+                    <strong>Seller confirms</strong>
+                    <p>Preview, then publish with full control.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="swap-demo__frame">
               <div class="swap-demo__phone" id="swap-demo-phone">
                 <!-- Scene 1 -->
@@ -271,16 +337,27 @@
                     <h3>Add photos &amp; videos</h3>
                     <span>1 of 4</span>
                   </div>
+                  <h4 class="swap-screen-heading">Show buyers what you&rsquo;re selling</h4>
                   <p class="swap-screen-hint">Add clear photos or a short video. You can arrange them before continuing.</p>
-                  <div class="swap-upload-card">
-                    <img src="/src/assets/icons/swapifly/upload-icon-bg.svg" alt="" width="56" height="56" class="swap-upload-card__bg" />
-                    <img src="/src/assets/icons/swapifly/icon-photo-video.svg" alt="" width="26" height="26" class="swap-upload-card__icon" />
-                    <p class="swap-upload-card__title">Upload photos or video</p>
-                    <p class="swap-upload-card__sub">Up to 10 photos or 1 video</p>
-                    <button type="button" class="swap-btn swap-btn--pink" tabindex="-1">
-                      <img src="/src/assets/icons/swapifly/icon-plus.svg" alt="" width="14" height="14" />
-                      Choose files
-                    </button>
+                  <!-- Simulated upload (portfolio demo — no real file picker or
+                       upload). Idle and loading states share the same grid
+                       cell so the card's height never jumps between them;
+                       JS toggles .is-loading on the card to crossfade. -->
+                  <div class="swap-upload-card" id="swap-upload-card">
+                    <div class="swap-upload-card__idle">
+                      <img src="/src/assets/icons/swapifly/upload-icon-bg.svg" alt="" width="56" height="56" class="swap-upload-card__bg" />
+                      <img src="/src/assets/icons/swapifly/icon-photo-video.svg" alt="" width="26" height="26" class="swap-upload-card__icon" />
+                      <p class="swap-upload-card__title">Upload photos or video</p>
+                      <p class="swap-upload-card__sub">Up to 10 photos or 1 video</p>
+                      <button type="button" class="swap-btn swap-btn--pink" id="swap-choose-files-btn">
+                        <img src="/src/assets/icons/swapifly/icon-plus.svg" alt="" width="14" height="14" />
+                        Choose files
+                      </button>
+                    </div>
+                    <div class="swap-upload-card__loading">
+                      <span class="swap-spinner" aria-hidden="true"></span>
+                      <p class="swap-upload-card__loading-text">Uploading photos&hellip;</p>
+                    </div>
                   </div>
                   <div class="swap-format-note">JPG, PNG, HEIC, MP4 or MOV · Max. 100 MB</div>
                   <p class="swap-tips-title">Quick tips</p>
@@ -289,7 +366,7 @@
                     <li>Show the item from multiple angles</li>
                     <li>Keep the background clean</li>
                   </ul>
-                  <div class="swap-bottom-action"><button type="button" class="swap-btn swap-btn--disabled" tabindex="-1">Next</button></div>
+                  <div class="swap-bottom-action"><button type="button" class="swap-btn swap-btn--disabled" id="swap-next-btn-1" disabled>Next</button></div>
                 </div>
 
                 <!-- Scene 2 -->
@@ -299,8 +376,9 @@
                     <h3>Add photos &amp; videos</h3>
                     <span>1 of 4</span>
                   </div>
-                  <p class="swap-screen-hint">3 photos added · Tap a photo to set it as the cover</p>
-                  <div class="swap-photo-row">
+                  <h4 class="swap-screen-heading">Show buyers what you&rsquo;re selling</h4>
+                  <p class="swap-screen-hint" id="swap-photo-count-hint">3 photos added · Tap a photo to set it as the cover</p>
+                  <div class="swap-photo-row" id="swap-photo-row">
                     <div class="swap-photo swap-photo--cover">
                       <img src="/src/assets/images/swapifly/listing-photo-1.jpg" alt="Uploaded photo of Beats Solo 3 Wireless headphones, set as cover" loading="lazy" />
                       <span class="swap-photo__badge">Cover</span>
@@ -322,16 +400,15 @@
                     <li>Show the item from multiple angles</li>
                     <li>Keep the background clean</li>
                   </ul>
-                  <div class="swap-bottom-action"><button type="button" class="swap-btn swap-btn--pink" tabindex="-1">Next</button></div>
+                  <div class="swap-bottom-action"><button type="button" class="swap-btn swap-btn--pink" id="swap-next-btn-2">Next</button></div>
                 </div>
 
-                <!-- Scene 3: AI analyzing -->
-                <div class="swap-scene" data-scene="3">
-                  <div class="swap-screen-header">
-                    <img src="/src/assets/icons/swapifly/icon-back.svg" alt="" width="20" height="20" />
-                    <h3>Review your listing</h3>
-                    <span>2 of 4</span>
-                  </div>
+                <!-- AI analyzing: a dimmed overlay + centered modal shown on top
+                     of the still-visible photos-added screen (Figma "AI
+                     analyzing overlay", node 333:607) — not a full-screen
+                     scene, so scene 2 stays active and visible underneath. -->
+                <div class="swap-analyzing-overlay" id="swap-analyzing-overlay" aria-hidden="true">
+                  <div class="swap-analyzing-overlay__backdrop"></div>
                   <div class="swap-analyzing">
                     <span class="swap-analyzing__orb">
                       <img src="/src/assets/icons/swapifly/ai-sparkle.svg" alt="" width="20" height="20" />
@@ -362,29 +439,31 @@
                     <div class="swap-field"><span>Auto reply</span><strong>Enabled · Common questions</strong><em>AI</em></div>
                     <div class="swap-field"><span>Deal method</span><strong>Meet in person · ABC Mall</strong><em>AI</em></div>
                   </div>
-                  <div class="swap-bottom-action"><button type="button" class="swap-btn swap-btn--pink" tabindex="-1">Preview</button></div>
+                  <div class="swap-bottom-action"><button type="button" class="swap-btn swap-btn--pink" id="swap-preview-btn">Preview</button></div>
                 </div>
 
                 <!-- Scene 5: Preview -->
                 <div class="swap-scene" data-scene="5">
-                  <div class="swap-preview-media">
-                    <img src="/src/assets/images/swapifly/listing-photo-1.jpg" alt="Listing preview photo of Beats Solo 3 Wireless" loading="lazy" />
-                    <span class="swap-preview-media__count">1 / 3</span>
-                    <span class="swap-preview-media__tag">LISTING PREVIEW</span>
-                  </div>
-                  <div class="swap-preview-body">
-                    <h3>Beats Solo 3 Wireless</h3>
-                    <p class="swap-preview-price">HK$ 200</p>
-                    <div class="swap-chips"><span>Like new</span><span>Electronics · Audio</span><span>Beats</span></div>
-                    <div class="swap-seller">
-                      <span class="swap-seller__avatar" aria-hidden="true">AW</span>
-                      <div><strong>Alex Wong</strong><small>Verified seller · ABC Mall</small></div>
+                  <div class="swap-review-scroll swap-review-scroll--preview">
+                    <div class="swap-preview-media">
+                      <img src="/src/assets/images/swapifly/listing-photo-1.jpg" alt="Listing preview photo of Beats Solo 3 Wireless" loading="lazy" />
+                      <span class="swap-preview-media__count">1 / 3</span>
+                      <span class="swap-preview-media__tag">LISTING PREVIEW</span>
                     </div>
-                    <p class="swap-preview-note">This is how buyers will see your listing.</p>
+                    <div class="swap-preview-body">
+                      <h3>Beats Solo 3 Wireless</h3>
+                      <p class="swap-preview-price">HK$ 200</p>
+                      <div class="swap-chips"><span>Like new</span><span>Electronics · Audio</span><span>Beats</span></div>
+                      <div class="swap-seller">
+                        <span class="swap-seller__avatar" aria-hidden="true">AW</span>
+                        <div><strong>Alex Wong</strong><small>Verified seller · ABC Mall</small></div>
+                      </div>
+                      <p class="swap-preview-note">This is how buyers will see your listing.</p>
+                    </div>
                   </div>
                   <div class="swap-bottom-action swap-bottom-action--split">
-                    <button type="button" class="swap-btn swap-btn--ghost" tabindex="-1">Edit</button>
-                    <button type="button" class="swap-btn swap-btn--pink" tabindex="-1">Publish</button>
+                    <button type="button" class="swap-btn swap-btn--ghost" id="swap-edit-btn" disabled aria-disabled="true">Edit</button>
+                    <button type="button" class="swap-btn swap-btn--pink" id="swap-publish-btn">Publish</button>
                   </div>
                 </div>
 
@@ -394,7 +473,7 @@
                     <img src="/src/assets/images/swapifly/listing-photo-1.jpg" alt="Published listing photo of Beats Solo 3 Wireless" loading="lazy" />
                     <span class="swap-preview-media__tag swap-preview-media__tag--live">LIVE LISTING</span>
                   </div>
-                  <div class="swap-published-banner">
+                  <div class="swap-published-banner" id="swap-published-toast">
                     <img src="/src/assets/icons/swapifly/publish-success-bg.svg" alt="" width="40" height="40" class="swap-published-banner__bg" />
                     <img src="/src/assets/icons/swapifly/publish-success-check.svg" alt="" width="20" height="20" class="swap-published-banner__check" />
                     <div>
@@ -408,52 +487,36 @@
                     <div class="swap-chips"><span>Like new</span><span>Electronics · Audio</span><span>Beats</span></div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <div class="swap-demo__controls">
-              <div class="swap-demo__dots" role="tablist" aria-label="Listing flow scenes">
-                <button type="button" class="swap-dot" data-dot="1" aria-label="Scene 1: Upload photos"></button>
-                <button type="button" class="swap-dot" data-dot="2" aria-label="Scene 2: Photos added"></button>
-                <button type="button" class="swap-dot" data-dot="3" aria-label="Scene 3: AI analyzing"></button>
-                <button type="button" class="swap-dot" data-dot="4" aria-label="Scene 4: Review AI draft"></button>
-                <button type="button" class="swap-dot" data-dot="5" aria-label="Scene 5: Preview listing"></button>
-                <button type="button" class="swap-dot" data-dot="6" aria-label="Scene 6: Published"></button>
+                <!-- Tap indicator: a single reusable pulsing cue, repositioned by
+                     JS over whichever button the visitor should click next.
+                     pointer-events:none so it never blocks the real button. -->
+                <span class="swap-tap-indicator" id="swap-tap-indicator" aria-hidden="true" hidden>
+                  <span class="swap-tap-indicator__ring"></span>
+                  <span class="swap-tap-indicator__dot"></span>
+                </span>
               </div>
-              <button type="button" class="swap-demo__replay" id="swap-demo-replay">
-                <span class="swap-demo__replay-icon" aria-hidden="true">↻</span>
-                Replay demo
-              </button>
+
+              <p class="swap-demo__live-region" id="swap-demo-live-region" role="status" aria-live="polite"></p>
+
+              <!-- Replay: resets the click-driven flow back to state 1. Not
+                   part of the desktop Figma frame (hidden there via
+                   swap-section--listing rules in swapifly.css), kept for the
+                   mobile layout and as a reduced-motion-friendly restart. -->
+              <div class="swap-demo__controls">
+                <button type="button" class="swap-demo__replay" id="swap-demo-replay">
+                  <span class="swap-demo__replay-icon" aria-hidden="true">↻</span>
+                  Replay demo
+                </button>
+              </div>
+              <p class="swap-demo__fallback-note" id="swap-demo-fallback-note" hidden>
+                Motion is reduced in your browser settings — the flow still responds to clicks; use Replay to start over.
+              </p>
             </div>
-            <p class="swap-demo__fallback-note" id="swap-demo-fallback-note" hidden>
-              Motion is reduced in your browser settings — use Replay to step through the flow.
-            </p>
           </div>
 
-          <p class="swap-caption" data-reveal>Complexity stays in the system—not in the seller's head.</p>
-
-          <div class="swap-timeline" data-reveal>
-            <div class="swap-timeline__item">
-              <span class="swap-timeline__num">01</span>
-              <strong>Image-first</strong>
-              <p>Start with a familiar action: photograph the item.</p>
-            </div>
-            <div class="swap-timeline__item">
-              <span class="swap-timeline__num">02</span>
-              <strong>AI creates a draft</strong>
-              <p>Suggests fields from the image data.</p>
-            </div>
-            <div class="swap-timeline__item">
-              <span class="swap-timeline__num">03</span>
-              <strong>Quick review</strong>
-              <p>Edit individual fields instead of starting over.</p>
-            </div>
-            <div class="swap-timeline__item">
-              <span class="swap-timeline__num">04</span>
-              <strong>Seller confirms</strong>
-              <p>Preview, then publish with full control.</p>
-            </div>
-          </div>
+          <hr class="swap-divider" />
+          <p class="swap-caption swap-listing__caption" data-reveal>Complexity stays in the system—not in the seller's head.</p>
         </div>
       </section>
 

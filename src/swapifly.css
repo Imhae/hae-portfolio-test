@@ -513,6 +513,51 @@
 }
 
 /* 04 · Listing flow demo ---------------------------------------------------- */
+/* Figma (node 333:274, "04 · Core flow / Listing") authors this section's
+   content against a precise 1152px-wide canvas with no extra gutter, same
+   discrepancy already solved for the ecosystem section: .container's
+   max-width is border-box, so its content box is 48px short of 1152.
+   Widen it here too so the rounded demo container and heading hit Figma's
+   literal pixel values. Desktop/tablet only — mobile keeps the default
+   .container width. */
+.swap-section--listing .container {
+  max-width: calc(var(--max-width) + 48px);
+}
+
+.swap-listing__heading {
+  font-size: 66px;
+  line-height: 70px;
+  max-width: 960px;
+  margin-top: 20px;
+}
+
+.swap-listing__lead {
+  font-size: 18px;
+  line-height: 28px;
+  max-width: 860px;
+  margin-top: 12px;
+}
+
+.swap-listing__ribbon {
+  margin-top: 46px;
+}
+
+.swap-listing__caption {
+  margin-top: 49px;
+  font-size: 30px;
+  line-height: 38px;
+}
+
+/* Horizontal rule above the closing statement (Figma "Listing / Divider",
+   node 333:284): 1px, full container width, positioned below the rounded
+   demo container rather than inside it. */
+.swap-divider {
+  margin: 89px 0 0;
+  border: none;
+  height: 1px;
+  background: #d6ccdb;
+}
+
 .swap-ribbon {
   display: inline-flex;
   margin-top: 40px;
@@ -525,30 +570,167 @@
   padding: 13px 22px;
 }
 
+/* Rounded demo container (Figma "VIDEO · Listing Flow / 12 sec", node
+   333:286): exact 1152x922, two-column row — timeline left, phone right.
+   The phone is vertically centered by the row itself (align-items:
+   flex-start + its own height filling the padded row exactly matches
+   Figma's top:50%/-50% centering); the timeline gets an explicit extra
+   margin-top to land at its own precise offset (see .swap-demo__timeline).
+   Desktop/tablet only; the max-width:900px block below reverts this to a
+   stacked column for tablet/mobile. */
 .swap-demo {
-  margin-top: 48px;
+  margin-top: 46px;
+  width: 100%;
+  max-width: 1152px;
+  height: 922px;
+  padding: 39px 112px 39px 72px;
   background: #fcf9fe;
   border-radius: 30px;
   box-shadow: 0 18px 40px rgba(31, 15, 38, 0.13);
-  padding: 48px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.swap-demo__frame {
+  position: relative;
+  flex-shrink: 0;
+  perspective: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.swap-demo__frame {
-  perspective: 1200px;
-}
-
 .swap-demo__phone {
   position: relative;
-  width: 300px;
-  height: 649px;
+  width: 390px;
+  height: 844px;
   background: #fbfcfe;
   border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 34px;
-  box-shadow: 0 10px 28px -10px rgba(255, 0, 115, 0.1), 0 22px 42px -6px rgba(31, 18, 41, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 10px 28px -10px rgba(255, 0, 115, 0.08), 0 22px 42px -6px rgba(31, 18, 41, 0.16);
   overflow: hidden;
+}
+
+/* Left column: 4-step vertical timeline (Figma "Listing / Visual timeline",
+   node 333:625). Rows are spaced with an explicit flex gap rather than
+   absolute positioning, chosen so that row-top + row-height reproduces
+   Figma's marker top offsets (0, 160, 320, 480px) exactly: each row is as
+   tall as its 72px icon tile, and 160 - 72 = 88px of gap lands the next
+   row's top precisely on the next marker. The connectors are absolutely
+   positioned across that same gap using Figma's own top values, since a
+   flex `gap` has no box of its own to hold decorative content. */
+.swap-demo__timeline {
+  position: relative;
+  width: 420px;
+  flex-shrink: 0;
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+}
+
+.swap-demo__connector {
+  position: absolute;
+  left: 30px;
+  width: 2px;
+  height: 98px;
+  background: #d1a8bf;
+  opacity: 0.72;
+  border-radius: 1px;
+}
+
+.swap-demo__step {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.swap-demo__marker {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* max-width: none overrides the global `img { max-width: 100% }` reset
+   (style.css) — without it, the containing block (the 62px marker) caps
+   this 94px-wide shadow-bleed image down to 62px while its height stays
+   94px, stretching the circle into an oval. */
+.swap-demo__marker-bg {
+  position: absolute;
+  left: -16px;
+  top: -10px;
+  width: 94px;
+  height: 94px;
+  max-width: none;
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+}
+
+.swap-demo__marker-num {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--swap-pink);
+}
+
+.swap-demo__step-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.swap-demo__step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  background: #fff0f7;
+  border: 1px solid #fff;
+  border-radius: 18px;
+}
+
+.swap-demo__step-text {
+  width: 220px;
+}
+
+.swap-demo__step-text strong {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 18px;
+  color: #1a141c;
+  text-transform: uppercase;
+}
+
+.swap-demo__step-text p {
+  margin: 4px 0 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 23px;
+  color: #4f4552;
+}
+
+/* Pagination dots + Replay: not part of the desktop Figma frame, only
+   the mobile layout's manual scene control (see max-width:900px block). */
+.swap-demo__controls,
+.swap-demo__fallback-note {
+  display: none;
 }
 
 .swap-scene {
@@ -571,13 +753,14 @@
 .swap-screen-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 20px 16px 14px;
+  gap: 14px;
+  height: 92px;
+  padding: 0 20px;
   border-bottom: 1px solid #f0f0f6;
 }
 
 .swap-screen-header h3 {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
   color: #1f212b;
   margin: 0;
@@ -585,65 +768,149 @@
 }
 
 .swap-screen-header span {
-  font-size: 11px;
+  font-size: 13px;
   color: #6b7385;
+}
+
+.swap-screen-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f212b;
+  margin: 0;
+  padding: 22px 20px 0;
 }
 
 .swap-screen-hint {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   color: #6b7385;
-  padding: 12px 16px 0;
+  padding: 9px 20px 0;
   margin: 0;
 }
 
+/* Grid, not flex: .swap-upload-card__idle and .swap-upload-card__loading
+   both occupy the same 1/1 cell so the card crossfades between them
+   in place (see below) without ever changing height — the "loading"
+   state is centered within whatever height the (taller) idle content
+   established. */
 .swap-upload-card {
-  margin: 18px 16px 0;
+  margin: 26px 20px 0;
   border: 1px dashed #bfccfa;
-  border-radius: 20px;
+  border-radius: 24px;
   background: #fff;
   box-shadow: 0 8px 24px rgba(31, 46, 89, 0.07);
-  padding: 24px 16px 20px;
+  padding: 27px 20px 26px;
+  display: grid;
+  position: relative;
+}
+
+.swap-upload-card__idle {
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.swap-upload-card__loading {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.swap-upload-card.is-loading .swap-upload-card__idle {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.swap-upload-card.is-loading .swap-upload-card__loading {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.swap-spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid #f0f2ff;
+  border-top-color: var(--swap-pink);
+  animation: swapSpin 0.8s linear infinite;
+}
+
+@keyframes swapSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.swap-upload-card__loading-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7385;
+  margin: 0;
 }
 
 .swap-upload-card__bg {
-  margin-bottom: -18px;
+  width: 64px;
+  height: 64px;
+  margin-bottom: -28px;
 }
 
 .swap-upload-card__icon {
   position: relative;
   z-index: 1;
-  margin-bottom: 10px;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 14px;
 }
 
 .swap-upload-card__title {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
   color: #1f212b;
   margin: 4px 0 0;
 }
 
 .swap-upload-card__sub {
-  font-size: 11px;
+  font-size: 13px;
   color: #6b7385;
-  margin: 4px 0 14px;
+  margin: 4px 0 18px;
 }
 
 .swap-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  border-radius: 12px;
-  padding: 10px 16px;
-  font-size: 12px;
+  gap: 12px;
+  border-radius: 14px;
+  padding: 13px 22px;
+  font-size: 14px;
   font-weight: 500;
+  font-family: inherit;
   border: none;
-  cursor: default;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.swap-btn:disabled {
+  cursor: not-allowed;
+}
+
+.swap-btn:focus-visible {
+  outline: 2px solid var(--swap-pink);
+  outline-offset: 2px;
 }
 
 .swap-btn--pink {
@@ -651,40 +918,52 @@
   color: #fff;
 }
 
-.swap-btn--disabled {
+.swap-btn--pink:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.swap-btn--disabled,
+.swap-btn--pink:disabled {
   background: #e8ebf2;
   color: #9499a8;
 }
 
 .swap-btn--ghost {
-  background: #eef0f7;
+  background: #fff;
   color: #1f212b;
+  border: 1px solid #e3e5f0;
+}
+
+.swap-btn--ghost:disabled {
+  color: #b7bccb;
+  border-color: #edeef3;
+  background: #fafafc;
 }
 
 .swap-format-note {
-  margin: 14px 16px 0;
+  margin: 18px 20px 0;
   background: #f4f6ff;
-  border-radius: 12px;
-  padding: 10px 12px;
-  font-size: 10px;
+  border-radius: 16px;
+  padding: 13px 16px;
+  font-size: 12px;
   color: #4057ad;
 }
 
 .swap-tips-title {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   color: #1f212b;
-  margin: 16px 16px 0;
+  margin: 21px 20px 0;
 }
 
 .swap-tips {
-  margin: 8px 16px 0;
-  padding: 10px 14px;
+  margin: 11px 20px 0;
+  padding: 13px 18px;
   background: #fff;
   border: 1px solid #e3e5f0;
-  border-radius: 14px;
+  border-radius: 18px;
   list-style: none;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.9;
   color: #6b7385;
 }
@@ -697,10 +976,10 @@
 
 .swap-bottom-action {
   margin-top: auto;
-  padding: 14px 16px;
+  padding: 16px 20px;
   box-shadow: 0 -6px 18px rgba(26, 33, 64, 0.08);
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .swap-bottom-action--split .swap-btn {
@@ -715,8 +994,8 @@
 
 .swap-photo-row {
   display: flex;
-  gap: 8px;
-  margin: 16px 16px 0;
+  gap: 10px;
+  margin: 20px 20px 0;
 }
 
 .swap-photo {
@@ -736,27 +1015,36 @@
 
 .swap-photo__badge {
   position: absolute;
-  bottom: 6px;
-  left: 6px;
+  bottom: 8px;
+  left: 8px;
   background: rgba(0, 0, 0, 0.55);
   color: #fff;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  padding: 3px 6px;
+  padding: 4px 8px;
   border-radius: 999px;
 }
 
-.swap-photo__remove-bg,
-.swap-photo__remove-x {
+/* `img.` prefix (not just the bare class) needed here: `.swap-photo img`
+   above is a class+type selector, so a plain class selector loses to it on
+   specificity regardless of what properties it sets — without matching that
+   specificity, the remove badge/x stretch to fill the whole photo
+   thumbnail instead of sitting as a small corner control. */
+img.swap-photo__remove-bg,
+img.swap-photo__remove-x {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
 }
 
-.swap-photo__remove-x {
-  top: 12px;
-  right: 12px;
+img.swap-photo__remove-x {
+  top: 15px;
+  right: 15px;
+  width: 13px;
+  height: 13px;
 }
 
 .swap-photo--add {
@@ -764,25 +1052,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 5px;
   border: 1px dashed #d7dae5;
   background: #fafbfd;
 }
 
 .swap-photo--add span {
-  font-size: 9px;
+  font-size: 12px;
   color: #6b7385;
 }
 
+/* Floating modal card (Figma "AI analyzing overlay", node 333:607) — shown
+   centered over a dimmed backdrop by .swap-analyzing-overlay, not as its
+   own full-screen scene, so the photos-added screen stays visible (and
+   blocked from interaction) underneath while analysis runs. */
 .swap-analyzing {
-  flex: 1;
+  position: relative;
+  z-index: 1;
+  width: 350px;
+  max-width: calc(100% - 40px);
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 12px 28px rgba(26, 33, 64, 0.14);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 4px;
-  padding: 0 32px;
+  gap: 5px;
+  padding: 28px 42px;
 }
 
 .swap-analyzing__orb {
@@ -793,7 +1091,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
   animation: swapOrbPulse 1.8s ease-in-out infinite;
 }
 
@@ -803,7 +1101,7 @@
 }
 
 .swap-analyzing__title {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: #1f212b;
   margin: 0;
@@ -812,12 +1110,12 @@
 .swap-analyzing__sub {
   font-size: 12px;
   color: #6b7385;
-  margin: 6px 0 22px;
+  margin: 8px 0 28px;
 }
 
 .swap-progress {
   width: 100%;
-  max-width: 220px;
+  max-width: 286px;
   height: 6px;
   border-radius: 999px;
   background: #eef0f8;
@@ -832,8 +1130,8 @@
   background: linear-gradient(90deg, var(--swap-pink), var(--swap-blue));
 }
 
-.swap-scene[data-scene='3'].is-active .swap-progress__fill {
-  animation: swapProgressFill 1.9s var(--ease-premium) forwards;
+.swap-analyzing-overlay.is-open .swap-progress__fill {
+  animation: swapProgressFill 2s var(--ease-premium) forwards;
 }
 
 @keyframes swapProgressFill {
@@ -841,39 +1139,76 @@
   to { width: 96%; }
 }
 
-.swap-screen-header--compact {
-  padding: 14px 16px 10px;
+/* Dimmed backdrop + centered modal card; sits above the (still-visible,
+   now unclickable) photos-added screen beneath it. */
+.swap-analyzing-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-premium), visibility 0.3s;
 }
 
+.swap-analyzing-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.swap-analyzing-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 26, 0.45);
+}
+
+.swap-screen-header--compact {
+  padding: 18px 20px 13px;
+  height: auto;
+}
+
+/* overscroll-behavior:contain stops the inner scroll from chaining to the
+   page once it hits its own top/bottom edge — required so reviewing a
+   listing inside the phone never scrolls the surrounding portfolio page. */
 .swap-review-scroll {
   flex: 1;
   overflow-y: auto;
-  padding: 8px 16px 16px;
+  overscroll-behavior: contain;
+  padding: 10px 20px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+.swap-review-scroll--preview {
+  padding: 0 0 20px;
+  gap: 0;
+}
+
 .swap-review-ready {
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 600;
   color: #ff0073;
-  margin: 6px 0 0;
+  margin: 8px 0 0;
 }
 
 .swap-review-hint {
-  font-size: 11.5px;
+  font-size: 15px;
   line-height: 1.5;
   color: #6b7385;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
 }
 
 .swap-field {
   position: relative;
   background: #fff;
   border: 1px solid #ececf3;
-  border-radius: 12px;
-  padding: 9px 34px 9px 12px;
+  border-radius: 16px;
+  padding: 12px 44px 12px 16px;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.4s var(--ease-premium), transform 0.4s var(--ease-premium);
@@ -884,6 +1219,9 @@
   transform: translateY(0);
 }
 
+/* nth-child counts from .swap-review-scroll's start (the two intro <p>
+   tags are children 1-2), so the 9 fields — Category through Deal method —
+   land on nth-child(3) through nth-child(11). */
 .swap-scene[data-scene='4'].is-active .swap-field:nth-child(3) { transition-delay: 0.05s; }
 .swap-scene[data-scene='4'].is-active .swap-field:nth-child(4) { transition-delay: 0.1s; }
 .swap-scene[data-scene='4'].is-active .swap-field:nth-child(5) { transition-delay: 0.15s; }
@@ -892,10 +1230,11 @@
 .swap-scene[data-scene='4'].is-active .swap-field:nth-child(8) { transition-delay: 0.34s; }
 .swap-scene[data-scene='4'].is-active .swap-field:nth-child(9) { transition-delay: 0.4s; }
 .swap-scene[data-scene='4'].is-active .swap-field:nth-child(10) { transition-delay: 0.46s; }
+.swap-scene[data-scene='4'].is-active .swap-field:nth-child(11) { transition-delay: 0.52s; }
 
 .swap-field span {
   display: block;
-  font-size: 9.5px;
+  font-size: 12px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
   color: #9a94a5;
@@ -903,29 +1242,29 @@
 
 .swap-field strong {
   display: block;
-  font-size: 12.5px;
+  font-size: 16px;
   font-weight: 500;
   color: #1f212b;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .swap-field em {
   position: absolute;
-  top: 9px;
-  right: 10px;
+  top: 12px;
+  right: 13px;
   font-style: normal;
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 11px;
   letter-spacing: 0.4px;
   color: #fff;
   background: linear-gradient(120deg, var(--swap-pink), var(--swap-blue));
-  padding: 2px 6px;
+  padding: 3px 8px;
   border-radius: 999px;
 }
 
 .swap-preview-media {
   position: relative;
-  height: 240px;
+  height: 350px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -938,25 +1277,25 @@
 
 .swap-preview-media__count {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 13px;
+  right: 13px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  font-size: 9px;
-  padding: 3px 8px;
+  font-size: 12px;
+  padding: 4px 10px;
   border-radius: 999px;
 }
 
 .swap-preview-media__tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 16px;
+  left: 16px;
   background: rgba(255, 255, 255, 0.92);
   color: #1f212b;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.6px;
-  padding: 4px 9px;
+  padding: 5px 12px;
   border-radius: 999px;
 }
 
@@ -966,52 +1305,52 @@
 }
 
 .swap-preview-body {
-  padding: 16px;
+  padding: 21px;
 }
 
 .swap-preview-body h3 {
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 600;
   color: #1f212b;
   margin: 0;
 }
 
 .swap-preview-price {
-  font-size: 15px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--swap-pink);
-  margin: 4px 0 0;
+  margin: 5px 0 0;
 }
 
 .swap-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin: 10px 0 0;
+  gap: 8px;
+  margin: 13px 0 0;
 }
 
 .swap-chips span {
   background: #f2f2f7;
   color: #4b4b57;
-  font-size: 10px;
-  padding: 4px 10px;
+  font-size: 13px;
+  padding: 5px 13px;
   border-radius: 999px;
 }
 
 .swap-seller {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 16px;
+  gap: 13px;
+  margin-top: 21px;
 }
 
 .swap-seller__avatar {
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--swap-pink), var(--swap-blue));
   color: #fff;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -1021,32 +1360,50 @@
 
 .swap-seller strong {
   display: block;
-  font-size: 12px;
+  font-size: 15px;
   color: #1f212b;
 }
 
 .swap-seller small {
-  font-size: 10px;
+  font-size: 12px;
   color: #6b7385;
 }
 
 .swap-preview-note {
-  font-size: 10.5px;
+  font-size: 12px;
   color: #9a94a5;
-  margin: 16px 0 0;
+  margin: 21px 0 0;
 }
 
+/* Success toast: hidden by default, JS toggles .is-visible on publish (fades
+   + slides down into place) and .is-leaving ~3s later before removing the
+   class entirely (fades back out). */
 .swap-published-banner {
-  margin: -30px 16px 0;
+  margin: -39px 21px 0;
   position: relative;
   z-index: 1;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 12px 28px rgba(31, 15, 38, 0.14);
-  padding: 12px 14px;
+  padding: 16px 18px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.4s var(--ease-premium), transform 0.4s var(--ease-premium);
+  pointer-events: none;
+}
+
+.swap-published-banner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.swap-published-banner.is-leaving {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
 .swap-published-banner__bg,
@@ -1055,49 +1412,26 @@
 }
 
 .swap-published-banner__check {
-  margin-left: -34px;
+  margin-left: -44px;
 }
 
 .swap-published-banner strong {
   display: block;
-  font-size: 12.5px;
+  font-size: 16px;
   color: #1f212b;
 }
 
 .swap-published-banner small {
-  font-size: 10.5px;
+  font-size: 12px;
   color: #6b7385;
 }
 
 /* Demo controls */
 .swap-demo__controls {
-  margin-top: 28px;
-  display: flex;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.swap-demo__dots {
-  display: flex;
-  gap: 8px;
-}
-
-.swap-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: none;
-  background: #ded4e4;
-  padding: 0;
-  cursor: pointer;
-  transition: background-color var(--dur-base) var(--ease-premium), transform var(--dur-base) var(--ease-premium);
-}
-
-.swap-dot.is-active {
-  background: var(--swap-pink);
-  transform: scale(1.3);
 }
 
 .swap-demo__replay {
@@ -1136,40 +1470,68 @@
   text-align: center;
 }
 
-/* Timeline (4-step) */
-.swap-timeline {
-  margin-top: 64px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+/* Tap indicator: a single reusable pulsing cue (mobile-tap style, not a
+   mouse cursor) that JS centers over whichever button the flow expects
+   next. pointer-events:none throughout so it never intercepts the real
+   click; [hidden] (native) fully removes it when not needed. */
+.swap-tap-indicator {
+  position: absolute;
+  z-index: 6;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
-.swap-timeline__item {
-  border-top: 2px solid #e3ddea;
-  padding-top: 18px;
-  position: relative;
+/* White, not brand-pink: every current tap target (Choose files, Next,
+   Preview, Publish) is a solid pink button, so a pink ring/dot would blend
+   straight into it. White (plus a soft dark shadow for definition on the
+   card's own light backgrounds) reads clearly against both. */
+.swap-tap-indicator__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(31, 15, 38, 0.18);
+  animation: swapTapPulse 1.6s ease-out infinite;
 }
 
-.swap-timeline__num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--swap-pink);
-  display: block;
+.swap-tap-indicator__dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 4px rgba(31, 15, 38, 0.14), 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-.swap-timeline__item strong {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 15px;
-  color: #17131c;
-  margin-top: 8px;
+@keyframes swapTapPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+  70%,
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
 }
 
-.swap-timeline__item p {
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: #6f6875;
-  margin: 6px 0 0;
+/* Visually hidden but announced by screen readers — carries the analysis-
+   complete / publish-success messages. */
+.swap-demo__live-region {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* 05 · Offer & chat --------------------------------------------------------- */
@@ -1489,6 +1851,44 @@
     max-width: 420px;
     margin: 0 auto;
   }
+
+  /* Listing demo: the fixed-width two-column row (420px timeline + 390px
+     phone, no shrink) needs ~1150px to avoid the columns colliding, so it
+     reverts to a stacked column here — the mobile layout this section already
+     had before the desktop rebuild, just with the nicer marker/icon/text
+     timeline instead of the old plain 4-column list. Phone-specific sizing
+     (below 640px) is untouched. */
+  .swap-section--listing .container {
+    max-width: var(--max-width);
+  }
+
+  .swap-demo {
+    width: auto;
+    max-width: none;
+    height: auto;
+    padding: 40px 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .swap-demo__timeline {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 0;
+  }
+
+  .swap-demo__frame {
+    margin-top: 40px;
+  }
+
+  .swap-demo__controls {
+    margin-top: 28px;
+    display: flex;
+  }
+
+  .swap-demo__fallback-note {
+    display: block;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1501,7 +1901,6 @@
   }
 
   .swap-snapshot,
-  .swap-timeline,
   .swap-outcome-row {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1723,6 +2122,277 @@
     height: 563px;
   }
 
+  /* Phone-internal content was resized for the new 390px-wide desktop/tablet
+     demo (see the "04 · Listing flow demo" block above); restore the
+     original, smaller values here so the pre-existing 260px-wide mobile
+     phone (unchanged by this pass) isn't left with oversized padding/type
+     that no longer fits it. */
+  .swap-screen-header {
+    height: auto;
+    gap: 12px;
+    padding: 20px 16px 14px;
+  }
+
+  .swap-screen-header h3 {
+    font-size: 14px;
+  }
+
+  .swap-screen-header span {
+    font-size: 11px;
+  }
+
+  .swap-screen-heading {
+    font-size: 15px;
+    padding: 14px 16px 0;
+  }
+
+  .swap-screen-hint {
+    font-size: 12px;
+    padding: 8px 16px 0;
+  }
+
+  .swap-upload-card {
+    margin: 18px 16px 0;
+    border-radius: 20px;
+    padding: 24px 16px 20px;
+  }
+
+  .swap-upload-card__bg {
+    width: 56px;
+    height: 56px;
+    margin-bottom: -18px;
+  }
+
+  .swap-upload-card__icon {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 10px;
+  }
+
+  .swap-upload-card__title {
+    font-size: 14px;
+  }
+
+  .swap-upload-card__sub {
+    font-size: 11px;
+    margin: 4px 0 14px;
+  }
+
+  .swap-btn {
+    gap: 8px;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .swap-btn--ghost {
+    background: #eef0f7;
+    border: none;
+  }
+
+  .swap-format-note {
+    margin: 14px 16px 0;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 10px;
+  }
+
+  .swap-tips-title {
+    font-size: 12px;
+    margin: 16px 16px 0;
+  }
+
+  .swap-tips {
+    margin: 8px 16px 0;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 11px;
+  }
+
+  .swap-bottom-action {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .swap-photo-row {
+    gap: 8px;
+    margin: 16px 16px 0;
+  }
+
+  .swap-photo__badge {
+    bottom: 6px;
+    left: 6px;
+    font-size: 8px;
+    padding: 3px 6px;
+  }
+
+  img.swap-photo__remove-bg,
+  img.swap-photo__remove-x {
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+
+  img.swap-photo__remove-x {
+    top: 12px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .swap-photo--add {
+    gap: 4px;
+  }
+
+  .swap-photo--add span {
+    font-size: 9px;
+  }
+
+  .swap-analyzing {
+    padding: 20px 24px;
+    gap: 4px;
+  }
+
+  .swap-analyzing__orb {
+    margin-bottom: 18px;
+  }
+
+  .swap-analyzing__title {
+    font-size: 15px;
+  }
+
+  .swap-analyzing__sub {
+    margin: 6px 0 22px;
+  }
+
+  .swap-progress {
+    max-width: 220px;
+  }
+
+  .swap-screen-header--compact {
+    padding: 14px 16px 10px;
+  }
+
+  .swap-review-scroll {
+    padding: 8px 16px 16px;
+  }
+
+  .swap-review-ready {
+    font-size: 13px;
+    margin: 6px 0 0;
+  }
+
+  .swap-review-hint {
+    font-size: 11.5px;
+    margin: 0 0 6px;
+  }
+
+  .swap-field {
+    border-radius: 12px;
+    padding: 9px 34px 9px 12px;
+  }
+
+  .swap-field span {
+    font-size: 9.5px;
+  }
+
+  .swap-field strong {
+    font-size: 12.5px;
+    margin-top: 2px;
+  }
+
+  .swap-field em {
+    top: 9px;
+    right: 10px;
+    font-size: 8.5px;
+    padding: 2px 6px;
+  }
+
+  .swap-preview-media {
+    height: 240px;
+  }
+
+  .swap-preview-media__count {
+    bottom: 10px;
+    right: 10px;
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+
+  .swap-preview-media__tag {
+    top: 12px;
+    left: 12px;
+    font-size: 9px;
+    padding: 4px 9px;
+  }
+
+  .swap-preview-body {
+    padding: 16px;
+  }
+
+  .swap-preview-body h3 {
+    font-size: 16px;
+  }
+
+  .swap-preview-price {
+    font-size: 15px;
+    margin: 4px 0 0;
+  }
+
+  .swap-chips {
+    gap: 6px;
+    margin: 10px 0 0;
+  }
+
+  .swap-chips span {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .swap-seller {
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .swap-seller__avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+  }
+
+  .swap-seller strong {
+    font-size: 12px;
+  }
+
+  .swap-seller small {
+    font-size: 10px;
+  }
+
+  .swap-preview-note {
+    font-size: 10.5px;
+    margin: 16px 0 0;
+  }
+
+  .swap-published-banner {
+    margin: -30px 16px 0;
+    border-radius: 16px;
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .swap-published-banner__check {
+    margin-left: -34px;
+  }
+
+  .swap-published-banner strong {
+    font-size: 12.5px;
+  }
+
+  .swap-published-banner small {
+    font-size: 10.5px;
+  }
+
   .swap-loop__heading {
     font-size: 28px;
     letter-spacing: -0.4px;
@@ -1760,9 +2430,22 @@
     animation: none;
   }
 
-  .swap-scene[data-scene='3'].is-active .swap-progress__fill {
+  .swap-analyzing-overlay.is-open .swap-progress__fill {
     animation: none;
     width: 96%;
+  }
+
+  .swap-analyzing-overlay {
+    transition: none;
+  }
+
+  .swap-spinner {
+    animation: none;
+  }
+
+  .swap-upload-card__idle,
+  .swap-upload-card__loading {
+    transition: none;
   }
 
   .swap-field {
@@ -1793,5 +2476,19 @@
 
   .swap-loop-m__line[data-loop-m-node] {
     transform: translateX(-50%) !important;
+  }
+
+  .swap-tap-indicator__ring {
+    animation: none;
+    opacity: 0.9;
+  }
+
+  .swap-published-banner {
+    transition: none;
+  }
+
+  .swap-demo__step,
+  .swap-demo__connector {
+    transition: none !important;
   }
 }
