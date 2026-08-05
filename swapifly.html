@@ -223,7 +223,15 @@
               </div>
 
               <div class="swap-loop-m__flow">
-                <span class="swap-loop-m__line" data-loop-m-node data-loop-m-step="3" aria-hidden="true"></span>
+                <!-- A CSS border can't animate a moving dash pattern, so this
+                     is an svg line (like every other connector) sharing the
+                     .swap-loop__connector-line conveyor-belt animation.
+                     x1/x2/y2 as percentages resolve against the svg's own
+                     rendered box, so it stays pixel-crisp and perfectly
+                     centered at any height without a viewBox. -->
+                <svg class="swap-loop-m__line" data-loop-m-node data-loop-m-step="3" aria-hidden="true">
+                  <line class="swap-loop__connector-line" x1="50%" y1="0" x2="50%" y2="100%" stroke="#6B3C67" stroke-width="2" stroke-linecap="round" />
+                </svg>
                 <div class="swap-loop__card swap-loop-m__card swap-loop-m__card--full" data-loop-m-node data-loop-m-step="3">
                   <span class="swap-loop__card-num">03&nbsp; OFFER</span>
                   <p>Buyer proposes a price</p>
