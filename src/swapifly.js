@@ -1,6 +1,12 @@
 import './swapifly.css';
 import { animate, scroll, stagger, inView } from 'motion';
 import { initReveal } from './lib/reveal.js';
+import listingPhoto1 from './assets/images/swapifly/listing-photo-1.jpg';
+import listingPhoto2 from './assets/images/swapifly/listing-photo-2.jpg';
+import listingPhoto3 from './assets/images/swapifly/listing-photo-3.jpg';
+import removePhotoBgIcon from './assets/icons/swapifly/remove-photo-bg.svg';
+import removePhotoXIcon from './assets/icons/swapifly/remove-photo-x.svg';
+import plusIcon from './assets/icons/swapifly/icon-plus.svg';
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -216,9 +222,9 @@ if (demoRoot) {
   // predefined product photos (Figma node 396:12906) after a brief fake
   // loading state.
   const PREDEFINED_PHOTOS = [
-    { url: '/src/assets/images/swapifly/listing-photo-1.jpg', alt: 'Beats Solo 3 Wireless headphones, set as cover' },
-    { url: '/src/assets/images/swapifly/listing-photo-2.jpg', alt: 'Beats Solo 3 Wireless headphones, front angle' },
-    { url: '/src/assets/images/swapifly/listing-photo-3.jpg', alt: 'Beats Solo 3 Wireless headphones, side angle' },
+    { url: listingPhoto1, alt: 'Beats Solo 3 Wireless headphones, set as cover' },
+    { url: listingPhoto2, alt: 'Beats Solo 3 Wireless headphones, front angle' },
+    { url: listingPhoto3, alt: 'Beats Solo 3 Wireless headphones, side angle' },
   ];
 
   let uploadedPhotos = []; // { url, alt }
@@ -286,7 +292,7 @@ if (demoRoot) {
       }
 
       const removeBg = document.createElement('img');
-      removeBg.src = '/src/assets/icons/swapifly/remove-photo-bg.svg';
+      removeBg.src = removePhotoBgIcon;
       removeBg.alt = '';
       removeBg.width = 20;
       removeBg.height = 20;
@@ -294,7 +300,7 @@ if (demoRoot) {
       cell.appendChild(removeBg);
 
       const removeX = document.createElement('img');
-      removeX.src = '/src/assets/icons/swapifly/remove-photo-x.svg';
+      removeX.src = removePhotoXIcon;
       removeX.alt = '';
       removeX.width = 10;
       removeX.height = 10;
@@ -307,8 +313,7 @@ if (demoRoot) {
     if (uploadedPhotos.length < 3) {
       const addMore = document.createElement('div');
       addMore.className = 'swap-photo swap-photo--add';
-      addMore.innerHTML =
-        '<img src="/src/assets/icons/swapifly/icon-plus.svg" alt="" width="16" height="16" /><span>Add more</span>';
+      addMore.innerHTML = `<img src="${plusIcon}" alt="" width="16" height="16" /><span>Add more</span>`;
       photoRow.appendChild(addMore);
     }
 
