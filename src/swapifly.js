@@ -6,7 +6,6 @@ import listingPhoto2 from './assets/images/swapifly/listing-photo-2.jpg';
 import listingPhoto3 from './assets/images/swapifly/listing-photo-3.jpg';
 import removePhotoBgIcon from './assets/icons/swapifly/remove-photo-bg.svg';
 import removePhotoXIcon from './assets/icons/swapifly/remove-photo-x.svg';
-import plusIcon from './assets/icons/swapifly/icon-plus.svg';
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -208,6 +207,7 @@ if (demoRoot) {
   const photoCountHint = document.getElementById('swap-photo-count-hint');
   const nextBtn2 = document.getElementById('swap-next-btn-2');
   const previewBtn = document.getElementById('swap-preview-btn');
+  const editBtn = document.getElementById('swap-edit-btn');
   const publishBtn = document.getElementById('swap-publish-btn');
   const analyzingOverlay = document.getElementById('swap-analyzing-overlay');
   const progressFill = demoRoot.querySelector('.swap-progress__fill');
@@ -215,6 +215,7 @@ if (demoRoot) {
   const tapIndicator = document.getElementById('swap-tap-indicator');
   const liveRegion = document.getElementById('swap-demo-live-region');
   const replayBtn = document.getElementById('swap-demo-replay');
+  const floatRestartBtn = document.getElementById('swap-float-restart');
   const fallbackNote = document.getElementById('swap-demo-fallback-note');
 
   // This is a simulated portfolio demo, not a real upload: "Choose files"
@@ -310,16 +311,9 @@ if (demoRoot) {
       photoRow.appendChild(cell);
     });
 
-    if (uploadedPhotos.length < 3) {
-      const addMore = document.createElement('div');
-      addMore.className = 'swap-photo swap-photo--add';
-      addMore.innerHTML = `<img src="${plusIcon}" alt="" width="16" height="16" /><span>Add more</span>`;
-      photoRow.appendChild(addMore);
-    }
-
     if (photoCountHint) {
       const count = uploadedPhotos.length;
-      photoCountHint.textContent = `${count} photo${count === 1 ? '' : 's'} added · Tap a photo to set it as the cover`;
+      photoCountHint.textContent = `${count} photo${count === 1 ? '' : 's'} added`;
     }
   }
 
@@ -371,8 +365,8 @@ if (demoRoot) {
       announce('Your draft is ready. Review the fields below.');
       transitioning = false;
 
-      const fieldCount = demoRoot.querySelectorAll('.swap-scene[data-scene="4"] .swap-field').length;
-      const staggerEndMs = prefersReducedMotion ? 0 : 60 + fieldCount * 60 + 400;
+      const itemCount = demoRoot.querySelectorAll('.swap-scene[data-scene="4"] .swap-review-item').length;
+      const staggerEndMs = prefersReducedMotion ? 0 : 40 + itemCount * 40 + 400;
       setTimeout(() => {
         if (previewBtn) showTapIndicator(previewBtn);
       }, staggerEndMs);
@@ -395,6 +389,16 @@ if (demoRoot) {
       hideTapIndicator();
       goToScene(STATE.PREVIEW);
       if (publishBtn) showTapIndicator(publishBtn);
+    });
+  }
+
+  // --- Edit (preview -> draft, back to review) --------------------------------
+  if (editBtn) {
+    editBtn.addEventListener('click', () => {
+      if (transitioning) return;
+      hideTapIndicator();
+      goToScene(STATE.DRAFT);
+      if (previewBtn) showTapIndicator(previewBtn);
     });
   }
 
@@ -453,6 +457,21 @@ if (demoRoot) {
 
   if (replayBtn) {
     replayBtn.addEventListener('click', resetFlow);
+  }
+
+  // Floating restart: same reset, but only shown while the demo phone is
+  // actually on screen so it doesn't linger as clutter over the rest of
+  // the case study.
+  if (floatRestartBtn) {
+    floatRestartBtn.addEventListener('click', resetFlow);
+    inView(
+      demoRoot,
+      () => {
+        floatRestartBtn.classList.add('is-visible');
+        return () => floatRestartBtn.classList.remove('is-visible');
+      },
+      { amount: 0.15 }
+    );
   }
 
   if (prefersReducedMotion && fallbackNote) {
