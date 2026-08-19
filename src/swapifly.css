@@ -561,31 +561,26 @@
   background: #d6ccdb;
 }
 
-/* Rounded demo container (Figma "VIDEO · Listing Flow / 12 sec", node
-   333:286): exact 1152x922, two-column row — timeline left, phone right.
-   The phone is vertically centered by the row itself (align-items:
-   flex-start + its own height filling the padded row exactly matches
-   Figma's top:50%/-50% centering); the timeline gets an explicit extra
-   margin-top to land at its own precise offset (see .swap-demo__timeline).
-   Shown at its native 1152x922 size — no zoom/transform shrink. The tap
-   indicator (see positionTapIndicator in swapifly.js) positions itself
-   from getBoundingClientRect() deltas applied as plain style.left/top, so
-   any CSS zoom/transform scaling on this box throws that math off; keeping
-   this unscaled is what keeps the indicator lined up with its target.
+/* Demo row (Figma "VIDEO · Listing Flow / 12 sec", node 333:286): two
+   columns — timeline left, phone right — no card background/frame, so the
+   row's own height is whatever the taller column (the phone) needs;
+   align-items: center balances the shorter timeline column against it
+   instead of pinning it to the top. Shown at its native size — no
+   zoom/transform shrink. The tap indicator (see positionTapIndicator in
+   swapifly.js) positions itself from getBoundingClientRect() deltas
+   applied as plain style.left/top, so any CSS zoom/transform scaling on
+   this box throws that math off; keeping this unscaled is what keeps the
+   indicator lined up with its target.
    Desktop/tablet only; the max-width:900px block below reverts this to a
    stacked column for tablet/mobile. */
 .swap-demo {
   margin: 20px auto 0;
   width: 100%;
   max-width: 1152px;
-  height: 922px;
   padding: 39px 112px 39px 72px;
-  background: #fcf9fe;
-  border-radius: 30px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  overflow: hidden;
 }
 
 .swap-demo__frame {
@@ -620,7 +615,6 @@
   position: relative;
   width: 420px;
   flex-shrink: 0;
-  margin-top: 55px;
   display: flex;
   flex-direction: column;
   gap: 88px;
@@ -721,8 +715,10 @@
   color: #4f4552;
 }
 
-/* Fallback note: only relevant to the mobile manual-scene-control layout
-   (see max-width:900px block). */
+/* Pagination dots + Replay: not part of the desktop Figma frame, only
+   the mobile layout's manual scene control (see max-width:900px block).
+   Desktop uses the floating .swap-float-restart button instead. */
+.swap-demo__controls,
 .swap-demo__fallback-note {
   display: none;
 }
@@ -1677,10 +1673,8 @@ img.swap-photo__remove-x {
   color: #6b7385;
 }
 
-/* Demo controls: sits right below the phone inside .swap-demo__frame. */
+/* Demo controls */
 .swap-demo__controls {
-  display: flex;
-  margin-top: 28px;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
@@ -1721,6 +1715,64 @@ img.swap-photo__remove-x {
   font-size: 12px;
   color: #8a8394;
   text-align: center;
+}
+
+/* Floating restart: pinned level with the phone frame's vertical center
+   (not the viewport corner, which drifts far from the phone once it's
+   scrolled into view), toggled in/out by JS while the interaction demo
+   is on screen. */
+.swap-float-restart {
+  position: fixed;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%) translateY(12px);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #201622;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(31, 15, 38, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-premium), transform 0.3s var(--ease-premium), background-color var(--dur-fast) var(--ease-premium);
+}
+
+.swap-float-restart.is-visible {
+  opacity: 1;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+.swap-float-restart:hover {
+  background: var(--swap-pink);
+  transform: translateY(-50%) translateY(-2px);
+}
+
+.swap-float-restart__icon {
+  display: inline-block;
+  transition: transform 0.4s var(--ease-premium);
+}
+
+.swap-float-restart:active .swap-float-restart__icon {
+  transform: rotate(-180deg);
+}
+
+@media (max-width: 640px) {
+  .swap-float-restart {
+    right: 16px;
+    padding: 12px 14px;
+  }
+
+  .swap-float-restart__label {
+    display: none;
+  }
 }
 
 /* Tap indicator: a single reusable pulsing cue (mobile-tap style, not a
@@ -2118,7 +2170,6 @@ img.swap-photo__remove-x {
   .swap-demo {
     width: auto;
     max-width: none;
-    height: auto;
     padding: 40px 20px;
     flex-direction: column;
     align-items: center;
@@ -2127,11 +2178,15 @@ img.swap-photo__remove-x {
   .swap-demo__timeline {
     width: 100%;
     max-width: 420px;
-    margin-top: 0;
   }
 
   .swap-demo__frame {
     margin-top: 40px;
+  }
+
+  .swap-demo__controls {
+    margin-top: 28px;
+    display: flex;
   }
 
   .swap-demo__fallback-note {

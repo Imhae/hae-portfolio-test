@@ -215,6 +215,7 @@ if (demoRoot) {
   const tapIndicator = document.getElementById('swap-tap-indicator');
   const liveRegion = document.getElementById('swap-demo-live-region');
   const replayBtn = document.getElementById('swap-demo-replay');
+  const floatRestartBtn = document.getElementById('swap-float-restart');
   const fallbackNote = document.getElementById('swap-demo-fallback-note');
 
   // This is a simulated portfolio demo, not a real upload: "Choose files"
@@ -456,6 +457,21 @@ if (demoRoot) {
 
   if (replayBtn) {
     replayBtn.addEventListener('click', resetFlow);
+  }
+
+  // Floating restart: same reset, but only shown while the demo phone is
+  // actually on screen so it doesn't linger as clutter over the rest of
+  // the case study.
+  if (floatRestartBtn) {
+    floatRestartBtn.addEventListener('click', resetFlow);
+    inView(
+      demoRoot,
+      () => {
+        floatRestartBtn.classList.add('is-visible');
+        return () => floatRestartBtn.classList.remove('is-visible');
+      },
+      { amount: 0.15 }
+    );
   }
 
   if (prefersReducedMotion && fallbackNote) {

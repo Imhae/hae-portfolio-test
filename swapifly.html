@@ -867,6 +867,18 @@
       </section>
     </main>
 
+    <!-- Floating restart: reuses the interaction demo's reset logic, but
+         fixed to the viewport (kept outside <main> since .swap-demo carries
+         a data-reveal transform once visible, which would otherwise become
+         the containing block for position:fixed). Pinned level with the
+         phone frame's vertical center, not the viewport corner, so it's
+         reachable without hunting for it. Shown only while the demo
+         section is in view. -->
+    <button type="button" class="swap-float-restart" id="swap-float-restart" aria-label="Restart interactive demo">
+      <span class="swap-float-restart__icon" aria-hidden="true">↻</span>
+      <span class="swap-float-restart__label">Restart demo</span>
+    </button>
+
     <footer class="footer">
       <div class="container footer__inner">
         <span class="footer__logo">HAE<span class="accent">.</span></span>
