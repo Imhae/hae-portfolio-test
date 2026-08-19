@@ -567,26 +567,17 @@
    flex-start + its own height filling the padded row exactly matches
    Figma's top:50%/-50% centering); the timeline gets an explicit extra
    margin-top to land at its own precise offset (see .swap-demo__timeline).
-   .swap-demo-viewport reserves the card's real on-page footprint (1152x922
-   scaled to 0.6x); .swap-demo itself stays laid out at its native 1152x922
-   size and is visually shrunk with `transform: scale`, which — unlike the
-   non-standard `zoom` property this used to rely on — renders identically
-   in every browser, so the card no longer shows up full-size (and out of
-   proportion with the rest of the page) wherever `zoom` isn't supported.
-   transform-origin: top left keeps the scaled box aligned to the
-   viewport's own top-left corner.
-   Desktop/tablet only; the max-width:1024px block below reverts both boxes
-   to a stacked, unscaled column for tablet/mobile. */
-.swap-demo-viewport {
+   Shown at its native 1152x922 size — no zoom/transform shrink. The tap
+   indicator (see positionTapIndicator in swapifly.js) positions itself
+   from getBoundingClientRect() deltas applied as plain style.left/top, so
+   any CSS zoom/transform scaling on this box throws that math off; keeping
+   this unscaled is what keeps the indicator lined up with its target.
+   Desktop/tablet only; the max-width:900px block below reverts this to a
+   stacked column for tablet/mobile. */
+.swap-demo {
   margin: 20px auto 0;
   width: 100%;
-  max-width: 691.2px;
-  height: 553.2px;
-  overflow: hidden;
-}
-
-.swap-demo {
-  width: 1152px;
+  max-width: 1152px;
   height: 922px;
   padding: 39px 112px 39px 72px;
   background: #fcf9fe;
@@ -596,8 +587,6 @@
   align-items: flex-start;
   justify-content: space-between;
   overflow: hidden;
-  transform: scale(0.6);
-  transform-origin: top left;
 }
 
 .swap-demo__frame {
@@ -2183,12 +2172,6 @@ img.swap-photo__remove-x {
     max-width: var(--max-width);
   }
 
-  .swap-demo-viewport {
-    max-width: none;
-    height: auto;
-    overflow: visible;
-  }
-
   .swap-demo {
     width: auto;
     max-width: none;
@@ -2196,7 +2179,6 @@ img.swap-photo__remove-x {
     padding: 40px 20px;
     flex-direction: column;
     align-items: center;
-    transform: none;
   }
 
   .swap-demo__timeline {
