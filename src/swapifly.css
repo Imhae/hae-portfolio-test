@@ -545,10 +545,6 @@
   margin-top: 6px;
 }
 
-.swap-listing__ribbon {
-  margin-top: 14px;
-}
-
 .swap-listing__caption {
   margin-top: 28px;
   font-size: 30px;
@@ -565,35 +561,32 @@
   background: #d6ccdb;
 }
 
-.swap-ribbon {
-  display: inline-flex;
-  margin-top: 40px;
-  background: #201622;
-  color: #ffb0d2;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.4px;
-  border-radius: 24px;
-  padding: 13px 22px;
-}
-
 /* Rounded demo container (Figma "VIDEO · Listing Flow / 12 sec", node
    333:286): exact 1152x922, two-column row — timeline left, phone right.
    The phone is vertically centered by the row itself (align-items:
    flex-start + its own height filling the padded row exactly matches
    Figma's top:50%/-50% centering); the timeline gets an explicit extra
    margin-top to land at its own precise offset (see .swap-demo__timeline).
-   `zoom` (not `transform: scale`, which wouldn't shrink the box's own
-   layout footprint) shrinks the whole card — phone, timeline, every font
-   size and icon inside — uniformly to 0.6x, so it fits a normal
-   laptop viewport at 100% page zoom without distorting the phone's real
-   390:844 aspect ratio or hand-tuning dozens of nested font/spacing rules.
-   Desktop/tablet only; the max-width:900px block below reverts this to a
-   stacked, unzoomed column for tablet/mobile. */
-.swap-demo {
+   .swap-demo-viewport reserves the card's real on-page footprint (1152x922
+   scaled to 0.6x); .swap-demo itself stays laid out at its native 1152x922
+   size and is visually shrunk with `transform: scale`, which — unlike the
+   non-standard `zoom` property this used to rely on — renders identically
+   in every browser, so the card no longer shows up full-size (and out of
+   proportion with the rest of the page) wherever `zoom` isn't supported.
+   transform-origin: top left keeps the scaled box aligned to the
+   viewport's own top-left corner.
+   Desktop/tablet only; the max-width:1024px block below reverts both boxes
+   to a stacked, unscaled column for tablet/mobile. */
+.swap-demo-viewport {
   margin: 20px auto 0;
   width: 100%;
-  max-width: 1152px;
+  max-width: 691.2px;
+  height: 553.2px;
+  overflow: hidden;
+}
+
+.swap-demo {
+  width: 1152px;
   height: 922px;
   padding: 39px 112px 39px 72px;
   background: #fcf9fe;
@@ -603,7 +596,8 @@
   align-items: flex-start;
   justify-content: space-between;
   overflow: hidden;
-  zoom: 0.6;
+  transform: scale(0.6);
+  transform-origin: top left;
 }
 
 .swap-demo__frame {
@@ -2189,6 +2183,12 @@ img.swap-photo__remove-x {
     max-width: var(--max-width);
   }
 
+  .swap-demo-viewport {
+    max-width: none;
+    height: auto;
+    overflow: visible;
+  }
+
   .swap-demo {
     width: auto;
     max-width: none;
@@ -2196,7 +2196,7 @@ img.swap-photo__remove-x {
     padding: 40px 20px;
     flex-direction: column;
     align-items: center;
-    zoom: normal;
+    transform: none;
   }
 
   .swap-demo__timeline {
@@ -2812,13 +2812,6 @@ img.swap-photo__remove-x {
   .swap-loop__heading {
     font-size: 28px;
     letter-spacing: -0.4px;
-  }
-
-  .swap-ribbon {
-    font-size: 10.5px;
-    padding: 11px 16px;
-    text-align: center;
-    white-space: normal;
   }
 
   .swap-decision-list--row {
