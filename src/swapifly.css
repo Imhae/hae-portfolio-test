@@ -582,7 +582,6 @@
   padding: 39px 112px 39px 72px;
   background: #fcf9fe;
   border-radius: 30px;
-  box-shadow: 0 18px 40px rgba(31, 15, 38, 0.13);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -722,9 +721,8 @@
   color: #4f4552;
 }
 
-/* Pagination dots + Replay: not part of the desktop Figma frame, only
-   the mobile layout's manual scene control (see max-width:900px block). */
-.swap-demo__controls,
+/* Fallback note: only relevant to the mobile manual-scene-control layout
+   (see max-width:900px block). */
 .swap-demo__fallback-note {
   display: none;
 }
@@ -1679,8 +1677,10 @@ img.swap-photo__remove-x {
   color: #6b7385;
 }
 
-/* Demo controls */
+/* Demo controls: sits right below the phone inside .swap-demo__frame. */
 .swap-demo__controls {
+  display: flex;
+  margin-top: 28px;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
@@ -1721,63 +1721,6 @@ img.swap-photo__remove-x {
   font-size: 12px;
   color: #8a8394;
   text-align: center;
-}
-
-/* Floating restart: pinned to the viewport corner, toggled in/out of view
-   by JS while the interaction demo is on screen. */
-.swap-float-restart {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 40;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #201622;
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  padding: 12px 20px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: 0 12px 28px rgba(31, 15, 38, 0.28);
-  opacity: 0;
-  transform: translateY(12px);
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease-premium), transform 0.3s var(--ease-premium), background-color var(--dur-fast) var(--ease-premium);
-}
-
-.swap-float-restart.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.swap-float-restart:hover {
-  background: var(--swap-pink);
-  transform: translateY(-2px);
-}
-
-.swap-float-restart__icon {
-  display: inline-block;
-  transition: transform 0.4s var(--ease-premium);
-}
-
-.swap-float-restart:active .swap-float-restart__icon {
-  transform: rotate(-180deg);
-}
-
-@media (max-width: 640px) {
-  .swap-float-restart {
-    right: 16px;
-    bottom: 16px;
-    padding: 12px 14px;
-  }
-
-  .swap-float-restart__label {
-    display: none;
-  }
 }
 
 /* Tap indicator: a single reusable pulsing cue (mobile-tap style, not a
@@ -2189,11 +2132,6 @@ img.swap-photo__remove-x {
 
   .swap-demo__frame {
     margin-top: 40px;
-  }
-
-  .swap-demo__controls {
-    margin-top: 28px;
-    display: flex;
   }
 
   .swap-demo__fallback-note {
