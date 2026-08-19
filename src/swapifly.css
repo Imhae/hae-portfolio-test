@@ -549,6 +549,7 @@
   margin-top: 28px;
   font-size: 30px;
   line-height: 38px;
+  max-width: none;
 }
 
 /* Horizontal rule above the closing statement (Figma "Listing / Divider",
