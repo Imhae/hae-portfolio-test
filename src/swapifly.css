@@ -631,6 +631,12 @@
   border-radius: 1px;
 }
 
+/* Mobile-only compact stepper (see max-width:1024px block for its layout):
+   hidden on desktop, where .swap-demo__timeline is shown instead. */
+.swap-demo__mtimeline {
+  display: none;
+}
+
 .swap-demo__step {
   display: flex;
   align-items: center;
@@ -2165,24 +2171,49 @@ img.swap-photo__remove-x {
     align-items: center;
   }
 
+  /* Desktop's vertical icon+description timeline is replaced below 1024px
+     by the compact .swap-demo__mtimeline stepper (defined further down),
+     which matches the mobile reference layout. */
   .swap-demo__timeline {
+    display: none;
+  }
+
+  .swap-demo__mtimeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     max-width: 420px;
+    margin: 0 auto;
   }
 
-  /* The marker + icon + text row is fixed-width for desktop's exact Figma
-     layout (62 + 30 + 72 + 24 + 220 = 408px); narrow phones give the
-     timeline less room than that, so let the text column shrink/wrap
-     instead of overflowing past the section's `overflow: hidden` edge. */
-  .swap-demo__step-content {
-    min-width: 0;
-    flex: 1;
+  .swap-demo__mtimeline-line {
+    position: absolute;
+    z-index: -1;
+    top: 31px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #d1a8bf;
+    opacity: 0.72;
   }
 
-  .swap-demo__step-text {
-    width: auto;
-    min-width: 0;
-    flex: 1;
+  .swap-demo__mstep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .swap-demo__mstep-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2px;
+    color: #1a141c;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .swap-demo__frame {

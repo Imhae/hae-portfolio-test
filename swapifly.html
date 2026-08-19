@@ -261,9 +261,8 @@
           </p>
           <div class="swap-demo" data-reveal>
             <!-- Left column: 4-step vertical timeline (Figma "Listing / Visual
-                 timeline", node 333:625) — desktop/tablet only, see
-                 swap-section--listing rules in swapifly.css. Collapses back
-                 to the section's default flow above that breakpoint. -->
+                 timeline", node 333:625) — desktop/tablet only (hidden below
+                 1024px in favor of .swap-demo__mtimeline below). -->
             <div class="swap-demo__timeline">
               <span class="swap-demo__connector" style="top: 62px"></span>
               <span class="swap-demo__connector" style="top: 222px"></span>
@@ -323,6 +322,44 @@
                     <p>Preview, then publish with full control.</p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <!-- Mobile/tablet-only compact stepper: replaces the vertical
+                 icon+description timeline above (hidden below 1024px, see
+                 swapifly.css) with 4 numbered circles on a connecting line
+                 and a short label each, matching the mobile reference
+                 layout. Reuses .swap-demo__marker for the same pink-ring
+                 numeral look as the desktop timeline. -->
+            <div class="swap-demo__mtimeline">
+              <span class="swap-demo__mtimeline-line" aria-hidden="true"></span>
+              <div class="swap-demo__mstep">
+                <div class="swap-demo__marker">
+                  <img class="swap-demo__marker-bg" src="/src/assets/icons/swapifly/timeline-step-marker-bg.svg" alt="" width="94" height="94" />
+                  <span class="swap-demo__marker-num">01</span>
+                </div>
+                <span class="swap-demo__mstep-label">Photo-first</span>
+              </div>
+              <div class="swap-demo__mstep">
+                <div class="swap-demo__marker">
+                  <img class="swap-demo__marker-bg" src="/src/assets/icons/swapifly/timeline-step-marker-bg.svg" alt="" width="94" height="94" />
+                  <span class="swap-demo__marker-num">02</span>
+                </div>
+                <span class="swap-demo__mstep-label">AI draft</span>
+              </div>
+              <div class="swap-demo__mstep">
+                <div class="swap-demo__marker">
+                  <img class="swap-demo__marker-bg" src="/src/assets/icons/swapifly/timeline-step-marker-bg.svg" alt="" width="94" height="94" />
+                  <span class="swap-demo__marker-num">03</span>
+                </div>
+                <span class="swap-demo__mstep-label">Quick review</span>
+              </div>
+              <div class="swap-demo__mstep">
+                <div class="swap-demo__marker">
+                  <img class="swap-demo__marker-bg" src="/src/assets/icons/swapifly/timeline-step-marker-bg.svg" alt="" width="94" height="94" />
+                  <span class="swap-demo__marker-num">04</span>
+                </div>
+                <span class="swap-demo__mstep-label">Publish</span>
               </div>
             </div>
 
