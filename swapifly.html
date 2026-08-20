@@ -878,14 +878,83 @@
         <div class="container">
           <p class="eyebrow swap-eyebrow--pink" data-reveal>Core Flow 03 · AI-Assisted Selling</p>
           <h2 class="swap-h2" data-reveal>AI assists. The seller decides.</h2>
-          <p class="swap-lead" data-reveal>
+          <p class="swap-lead swap-lead--wide" data-reveal>
             AI handles common questions and escalates situations that require judgment to the seller.
           </p>
 
           <div class="swap-ai-grid">
             <div class="swap-ai-visuals" data-reveal>
-              <img src="/src/assets/images/swapifly/ai-demo-suggestion.png" width="345" height="670" alt="AI-drafted reply suggestion shown to the seller before sending" loading="lazy" class="swap-ai-visuals__img swap-ai-visuals__img--left" />
-              <img src="/src/assets/images/swapifly/ai-demo-seller-control.png" width="334" height="665" alt="Seller controls for reviewing and editing an AI-suggested reply" loading="lazy" class="swap-ai-visuals__img swap-ai-visuals__img--right" />
+              <div class="swap-phone swap-ai-phone swap-ai-phone--left" aria-hidden="true">
+                <div class="swap-phone__header">
+                  <span class="swap-phone__back">
+                    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  </span>
+                  <span class="swap-phone__title">Chat with Sara</span>
+                  <span class="swap-phone__ai">
+                    <span>AI</span>
+                    <span class="swap-phone__toggle swap-phone__toggle--on"></span>
+                  </span>
+                </div>
+                <div class="swap-ai-phone__body">
+                  <div class="swap-ai-info">
+                    <strong>Answers learned from previous buyer chats</strong>
+                    <p>AI found 24 similar conversations about pickup, delivery and product condition.</p>
+                  </div>
+                  <p class="swap-bubble swap-bubble--in"><span>Can I pick it up near Central station?</span><time>11:27</time></p>
+                  <p class="swap-bubble swap-bubble--out">
+                    <span>
+                      Yes &mdash; pickup is available at Central station on weekdays after 6 PM.
+                      <span class="swap-ai-tag">Sent automatically</span>
+                    </span>
+                    <time class="swap-ai-note-time">Based on seller settings + 24 previous chats</time>
+                  </p>
+                </div>
+                <div class="swap-ai-note">
+                  <strong>Auto-reply is handling common questions</strong>
+                  <p>Seller is notified, and can pause or take over any time.</p>
+                  <div class="swap-ai-note__actions">
+                    <span class="swap-phone__pill swap-phone__pill--ghost">Take over chat</span>
+                    <span class="swap-phone__pill swap-phone__pill--decline">Pause AI</span>
+                  </div>
+                </div>
+                <div class="swap-phone__footer">
+                  <div class="swap-phone__footer-row">
+                    <span class="swap-phone__amount"><span class="swap-phone__amount-placeholder">Write a message&hellip;</span></span>
+                    <span class="swap-phone__cta">Send</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swap-phone swap-ai-phone swap-ai-phone--right" aria-hidden="true">
+                <div class="swap-phone__header">
+                  <span class="swap-phone__back">
+                    <svg viewBox="0 0 24 24" width="16" height="16"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  </span>
+                  <span class="swap-phone__title">Chat with Sara</span>
+                  <span class="swap-phone__ai">
+                    <span>AI</span>
+                    <span class="swap-phone__toggle swap-phone__toggle--on"></span>
+                  </span>
+                </div>
+                <div class="swap-ai-phone__body">
+                  <p class="swap-bubble swap-bubble--in">
+                    <span>
+                      Would you accept HK$160 if I pick it up today?
+                      <span class="swap-ai-price-tag">Price negotiation</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="swap-ai-suggestion">
+                  <span class="swap-ai-suggestion__pill">AI paused before replying</span>
+                  <span class="swap-ai-suggestion__label">Suggested reply</span>
+                  <p class="swap-ai-suggestion__text">Thanks for the offer. I can do HK$185 if we meet at Central station today.</p>
+                  <p class="swap-ai-suggestion__note">Based on your minimum price and prior negotiations</p>
+                  <div class="swap-ai-suggestion__actions">
+                    <span class="swap-phone__pill swap-phone__pill--ghost">Edit</span>
+                    <span class="swap-phone__pill swap-phone__pill--accept">Reply now</span>
+                  </div>
+                </div>
+              </div>
+              <span class="swap-sr-only">Left: AI auto-replying to a buyer's pickup question with a seller-editable pause/take-over control. Right: AI drafting a price-negotiation reply for the seller to review before sending.</span>
             </div>
             <div class="swap-ai-log" data-reveal>
               <h3>AI Activity log</h3>
