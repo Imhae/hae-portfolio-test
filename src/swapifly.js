@@ -91,6 +91,27 @@ if (!prefersReducedMotion) {
   }
 }
 
+// --- Offer/chat mockups: keep both phone frames the same size --------------
+// Buyer and seller share the same header/listing/footer chrome but the
+// seller thread has one extra block (the offer card), so its natural
+// content height is taller. Rather than guess a fixed size that could clip
+// at some width, measure both at their current (auto) height and set both
+// to the taller one — always exact, never distorted, never cut off.
+const chatPhones = document.querySelectorAll('.swap-chat-panel .swap-phone');
+if (chatPhones.length === 2) {
+  const syncChatPhoneHeights = () => {
+    chatPhones.forEach((el) => (el.style.height = ''));
+    const tallest = Math.max(...Array.from(chatPhones, (el) => el.getBoundingClientRect().height));
+    chatPhones.forEach((el) => (el.style.height = `${tallest}px`));
+  };
+
+  syncChatPhoneHeights();
+  window.addEventListener('resize', syncChatPhoneHeights);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncChatPhoneHeights);
+  }
+}
+
 // --- AI Activity log: staggered entrance when in view ----------------------
 const aiLogItems = document.querySelectorAll('.swap-ai-log__list li');
 if (aiLogItems.length) {

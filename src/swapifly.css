@@ -52,6 +52,18 @@
   letter-spacing: 1.2px;
 }
 
+.swap-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .swap-section {
   padding: 88px 0;
   position: relative;
@@ -1836,11 +1848,19 @@ img.swap-photo__remove-x {
 }
 
 /* 05 · Offer & chat --------------------------------------------------------- */
+.swap-offer__intro {
+  margin-bottom: 56px;
+}
+
+.swap-offer__title {
+  max-width: 900px;
+}
+
 .swap-offer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
   gap: 56px;
-  align-items: center;
+  align-items: start;
 }
 
 .swap-decision-list {
@@ -1885,10 +1905,411 @@ img.swap-photo__remove-x {
   margin: 0;
 }
 
-.swap-offer__visual img {
+/* Coded phone-chat mockups (buyer/seller) inside the offer panel ---------- */
+.swap-chat-panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 36px 28px 40px;
+  background: linear-gradient(90deg, #170b1b, #050407);
+  border: 1px solid #3d213b;
+  border-radius: 30px;
+  box-shadow: 0 28px 54px -10px rgba(0, 0, 0, 0.42);
+}
+
+.swap-chat-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swap-chat-role {
+  display: block;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #ff5ea3;
+  margin-bottom: 18px;
+}
+
+.swap-chat-divider {
+  align-self: stretch;
+  width: 1px;
+  margin-top: 34px;
+  background: #422640;
+  opacity: 0.9;
+}
+
+.swap-phone {
   width: 100%;
-  height: auto;
-  border-radius: 20px;
+  max-width: 340px;
+  /* Height is synced to match its sibling by JS (see swapifly.js) — it
+     measures each phone's natural content height and sets both to the
+     taller value, so they're always pixel-equal without distorting either
+     one's proportions or risking clipped content. */
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 22px 40px -16px rgba(0, 0, 0, 0.55);
+}
+
+.swap-phone__header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 14px 12px;
+}
+
+.swap-phone__back {
+  display: flex;
+  color: #17131c;
+}
+
+.swap-phone__title {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  color: #17131c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swap-phone__ai {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #7a7580;
+}
+
+.swap-phone__toggle {
+  position: relative;
+  width: 26px;
+  height: 15px;
+  border-radius: 999px;
+  background: #d9d5df;
+}
+
+.swap-phone__toggle::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.swap-phone__listing {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #f4f2f6;
+}
+
+.swap-phone__listing-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.swap-phone__listing-info p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  color: #4a4552;
+  line-height: 1.3;
+}
+
+.swap-phone__listing-info strong {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #17131c;
+}
+
+.swap-phone__thread {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: #f8f6fa;
+}
+
+.swap-phone__timestamp {
+  align-self: center;
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  color: #a7a1af;
+  margin-bottom: 2px;
+}
+
+.swap-bubble {
+  display: flex;
+  flex-direction: column;
+  max-width: 82%;
+  margin: 0;
+}
+
+.swap-bubble > span {
+  padding: 9px 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.45;
+  color: #232028;
+}
+
+.swap-bubble time {
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 9px;
+  color: #a7a1af;
+}
+
+.swap-bubble--in {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.swap-bubble--in > span {
+  background: #fff;
+  border: 1px solid #e6e2eb;
+  border-radius: 14px 14px 14px 3px;
+}
+
+.swap-bubble--out {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.swap-bubble--out > span {
+  background: #ebe7f2;
+  border-radius: 14px 14px 3px 14px;
+}
+
+.swap-offer-card {
+  align-self: flex-start;
+  max-width: 92%;
+  margin-top: 2px;
+  padding: 12px 14px 14px;
+  background: #fce6ee;
+  border: 1.5px solid var(--swap-pink);
+  border-radius: 14px;
+}
+
+.swap-offer-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.swap-offer-card__head span:first-child {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #b23568;
+}
+
+.swap-offer-card__pill {
+  padding: 3px 9px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #7a1f47;
+  background: #fff;
+  border-radius: 999px;
+}
+
+.swap-offer-card__price {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 700;
+  color: #17131c;
+}
+
+.swap-offer-card__note {
+  margin: 3px 0 0;
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  color: #8a5470;
+}
+
+.swap-offer-card__time {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 9px;
+  color: #a7a1af;
+}
+
+.swap-phone__footer {
+  flex-shrink: 0;
+  padding: 12px 14px 16px;
+  background: #fff;
+  border-top: 1px solid #eeecf1;
+}
+
+.swap-phone__footer-label {
+  display: block;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  color: #8a8590;
+  margin-bottom: 10px;
+}
+
+.swap-phone__footer-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swap-phone__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f2f0f4;
+  color: #4a4552;
+}
+
+.swap-phone__amount {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  height: 30px;
+  background: #f2f0f4;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+}
+
+.swap-phone__amount-cur {
+  font-weight: 700;
+  color: #17131c;
+}
+
+.swap-phone__amount-placeholder {
+  color: #a7a1af;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swap-phone__cta {
+  flex-shrink: 0;
+  padding: 0 16px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--swap-pink);
+  border-radius: 999px;
+}
+
+.swap-phone__pill {
+  flex: 1;
+  min-width: 0;
+  padding: 0 8px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 999px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swap-phone__pill--decline {
+  color: #fff;
+  background: #17131c;
+}
+
+.swap-phone__pill--counter {
+  color: #17131c;
+  background: #f2f0f4;
+}
+
+.swap-phone__pill--accept {
+  color: #fff;
+  background: var(--swap-pink);
+}
+
+.swap-chat-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 28px auto 0;
+  padding: 13px 22px;
+  width: fit-content;
+  max-width: 100%;
+  background: #0e0911;
+  border: 1px solid #522e4d;
+  border-radius: 24px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #d1c2d6;
+}
+
+.swap-chat-flow__arrow {
+  color: #d1c2d6;
+}
+
+.swap-chat-flow__active {
+  color: var(--swap-pink);
+}
+
+.swap-chat-caption {
+  max-width: 480px;
+  margin: 18px auto 0;
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: #b2a8bd;
 }
 
 /* 06 · AI seller -------------------------------------------------------------- */
@@ -2149,7 +2570,7 @@ img.swap-photo__remove-x {
   }
 
   .swap-offer__visual {
-    max-width: 420px;
+    max-width: 640px;
     margin: 0 auto;
   }
 
@@ -2460,6 +2881,39 @@ img.swap-photo__remove-x {
 
   .swap-section {
     padding: 64px 0;
+  }
+
+  .swap-chat-panel {
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 20px 32px;
+    gap: 32px;
+  }
+
+  .swap-chat-col {
+    align-items: center;
+    width: 100%;
+  }
+
+  .swap-chat-role {
+    align-self: center;
+  }
+
+  .swap-phone {
+    max-width: 280px;
+  }
+
+  .swap-chat-divider {
+    align-self: stretch;
+    width: auto;
+    height: 1px;
+    margin: 0;
+  }
+
+  .swap-chat-flow {
+    gap: 10px;
+    padding: 12px 16px;
+    font-size: 10px;
   }
 
   .swap-demo {
