@@ -2716,12 +2716,24 @@ img.swap-photo__remove-x {
   margin: 2px 0 0;
 }
 
-/* 07 · System showcase --------------------------------------------------------- */
+/* 07 · System showcase ---------------------------------------------------------
+   Figma lays 01-04 out as a bento collage: 02 and 04 sit staggered lower
+   than 01/03, and 04 genuinely overlaps 03's bottom-right corner. That
+   needs true overlap, not just a grid gap, so 01-04 are pinned by percentage
+   inside an aspect-ratio box (.swap-showcase__collage) rather than placed
+   in flow — percentages keep it scaling with the container, and DOM order
+   (04 after 03) gives 04 the top stacking without extra z-index. */
 .swap-showcase {
   margin-top: 56px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+}
+
+.swap-showcase__label {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--swap-pink);
 }
 
 .swap-showcase__item {
@@ -2739,24 +2751,54 @@ img.swap-photo__remove-x {
   box-shadow: 0 30px 54px rgba(28, 18, 31, 0.2);
 }
 
-.swap-showcase__item--wide {
-  grid-column: 1 / -1;
-}
-
 .swap-showcase__item img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.swap-showcase__item figcaption {
-  padding: 14px 18px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: #6f6875;
-  border-top: 1px solid #ece7f0;
+.swap-showcase__group--00 {
+  margin-bottom: 58px;
+}
+
+.swap-showcase__collage {
+  position: relative;
+}
+
+/* Padding-top aspect box: the four groups below are position:absolute (out
+   of flow), so the collage needs its own height to lay them out against. */
+.swap-showcase__collage::before {
+  content: '';
+  display: block;
+  padding-top: 131.8%;
+}
+
+.swap-showcase__collage .swap-showcase__group {
+  position: absolute;
+}
+
+.swap-showcase__group--01 {
+  left: 0;
+  top: 0;
+  width: 48.1%;
+}
+
+.swap-showcase__group--02 {
+  left: 52%;
+  top: 7.9%;
+  width: 48.1%;
+}
+
+.swap-showcase__group--03 {
+  left: 0;
+  top: 37.9%;
+  width: 60%;
+}
+
+.swap-showcase__group--04 {
+  left: 40%;
+  top: 65.1%;
+  width: 60%;
 }
 
 .swap-pills {
@@ -2773,6 +2815,7 @@ img.swap-photo__remove-x {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
   padding: 10px 22px;
   border-radius: 999px;
 }
@@ -2962,12 +3005,22 @@ img.swap-photo__remove-x {
     gap: 24px;
   }
 
-  .swap-showcase {
-    grid-template-columns: 1fr;
+  .swap-showcase__collage {
+    position: static;
   }
 
-  .swap-showcase__item--wide {
-    grid-column: auto;
+  .swap-showcase__collage::before {
+    display: none;
+  }
+
+  .swap-showcase__collage .swap-showcase__group {
+    position: static;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .swap-showcase__collage .swap-showcase__group:last-child {
+    margin-bottom: 0;
   }
 
   .swap-loop__heading {
