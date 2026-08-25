@@ -2801,6 +2801,12 @@ img.swap-photo__remove-x {
   width: 60%;
 }
 
+/* Figma right-aligns this label to the card's right edge instead of the
+   card's left edge like the other four labels. */
+.swap-showcase__group--04 .swap-showcase__label {
+  text-align: right;
+}
+
 .swap-pills {
   display: flex;
   gap: 12px;
