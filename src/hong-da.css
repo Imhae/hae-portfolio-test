@@ -864,6 +864,99 @@
   justify-content: center;
 }
 
+/* Next case study */
+.cs-next {
+  padding-top: 0;
+  padding-bottom: 88px;
+  border-top: none;
+}
+
+.cs-next__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-38);
+  margin: 0 0 20px;
+}
+
+.cs-next__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-softer);
+  border-radius: 20px;
+  padding: 40px 44px;
+  transition: border-color var(--dur-base) var(--ease-premium),
+    transform var(--dur-base) var(--ease-premium), box-shadow var(--dur-base) var(--ease-premium);
+}
+
+.cs-next__card:hover {
+  border-color: var(--accent-border-soft);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+}
+
+.cs-next__card:hover .cs-next__icon {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.cs-next__card:hover .cs-next__icon img {
+  filter: brightness(0) invert(1);
+}
+
+.cs-next__body {
+  min-width: 0;
+}
+
+.cs-next__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--text-100);
+  margin: 14px 0 4px;
+}
+
+.cs-next__subtitle {
+  font-size: 14px;
+  color: var(--text-45);
+  margin: 0;
+}
+
+.cs-next__action {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.cs-next__view {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-55);
+}
+
+.cs-next__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border-softer);
+  transition: background var(--dur-base) var(--ease-premium),
+    border-color var(--dur-base) var(--ease-premium);
+}
+
+.cs-next__icon img {
+  transition: filter var(--dur-base) var(--ease-premium);
+}
+
 /* Tooltip for annotations */
 .cs-tooltip {
   position: fixed;
@@ -944,6 +1037,20 @@
 
   .cs-back span {
     display: none;
+  }
+
+  .cs-next__card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+  }
+
+  .cs-next__action {
+    align-self: flex-end;
+  }
+
+  .cs-next__title {
+    font-size: 24px;
   }
 }
 
